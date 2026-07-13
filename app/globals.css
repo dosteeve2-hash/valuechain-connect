@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 45% 8%;
+    --foreground: 210 40% 98%;
+    --card: 220 40% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 40% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 43 65% 52%;
+    --primary-foreground: 220 45% 8%;
+    --secondary: 220 35% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 35% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 187 100% 42%;
+    --accent-foreground: 220 45% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 43 65% 52%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #0A1628;
+    color: #F1F5F9;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4AF37, #E8C84A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00BCD4, #26C6DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-navy-card {
+    background: linear-gradient(135deg, #0F2040 0%, #0A1628 100%);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+  .glow-gold { box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
+  .glow-cyan { box-shadow: 0 0 30px rgba(0, 188, 212, 0.2); }
+}
