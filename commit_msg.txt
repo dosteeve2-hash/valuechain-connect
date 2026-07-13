@@ -1,0 +1,5 @@
+feat: scaffold initial ValueChain Connect — marketplace B2B zone CEDEAO
+
+Part of FORGE Afrika ecosystem.
+
+Co-authored-by: Claude <claude@anthropic.com>
