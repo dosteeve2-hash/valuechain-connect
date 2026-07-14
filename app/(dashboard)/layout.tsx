@@ -1,13 +1,15 @@
 import Link from 'next/link'
-import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList } from 'lucide-react'
+import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, ScrollText, MessageSquare } from 'lucide-react'
 
 const NAV_ITEMS = [
-  { href: '/dashboard', label: 'Tableau de bord', icon: LayoutDashboard },
-  { href: '/catalogue', label: 'Catalogue', icon: ShoppingBag },
-  { href: '/dashboard/offres', label: 'Mes offres', icon: Package },
-  { href: '/devis', label: 'Devis', icon: FileText },
-  { href: '/dashboard/commandes', label: 'Commandes', icon: ClipboardList },
-  { href: '/dashboard/profil', label: 'Mon profil', icon: User },
+  { href: '/dashboard',                 label: 'Tableau de bord', icon: LayoutDashboard },
+  { href: '/catalogue',                 label: 'Catalogue',       icon: ShoppingBag },
+  { href: '/dashboard/mes-offres',      label: 'Mes offres',      icon: Package },
+  { href: '/devis',                     label: 'Devis',           icon: FileText },
+  { href: '/dashboard/commandes',       label: 'Commandes',       icon: ClipboardList },
+  { href: '/dashboard/contrats',        label: 'Contrats',        icon: ScrollText },
+  { href: '/dashboard/messages',        label: 'Messages',        icon: MessageSquare },
+  { href: '/dashboard/profil',          label: 'Mon profil',      icon: User },
 ]
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -25,7 +27,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <span className="font-bold text-white">ValueChain<span style={{ color: '#D4AF37' }}>Connect</span></span>
           </Link>
         </div>
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
             <Link key={item.href} href={item.href}
               className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200 group">
