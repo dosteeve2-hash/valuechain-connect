@@ -1,9 +1,11 @@
 import Link from 'next/link'
-import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList } from 'lucide-react'
+import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, Boxes, Truck } from 'lucide-react'
 
 const NAV_ITEMS = [
   { href: '/dashboard', label: 'Tableau de bord', icon: LayoutDashboard },
   { href: '/catalogue', label: 'Catalogue', icon: ShoppingBag },
+  { href: '/produits', label: 'Produits', icon: Boxes },
+  { href: '/livraisons', label: 'Livraisons', icon: Truck },
   { href: '/dashboard/offres', label: 'Mes offres', icon: Package },
   { href: '/devis', label: 'Devis', icon: FileText },
   { href: '/dashboard/commandes', label: 'Commandes', icon: ClipboardList },
