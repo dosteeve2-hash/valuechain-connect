@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { hoverScale } from '@/lib/animations'
 
 const CATEGORIES = [
   { name: 'Coton', emoji: '🌿', icon: Leaf, volume: '2.1M tonnes/an', color: 'from-emerald-900/40 to-emerald-800/20', border: 'border-emerald-700/30' },
@@ -153,7 +154,8 @@ export default function HomePage() {
             {STEPS.map((s, i) => (
               <motion.div key={s.step} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ type: 'spring' as const, delay: i * 0.15 }}
-                className="relative p-8 rounded-2xl border border-white/10 bg-navy-card hover:border-[#D4AF37]/30 transition-all duration-300">
+                {...hoverScale}
+                className="relative p-8 rounded-2xl border border-white/10 bg-navy-card hover:border-[#D4AF37]/30 transition-colors cursor-default">
                 <div className="text-6xl font-black opacity-10 text-white absolute top-4 right-6">{s.step}</div>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                   style={{ background: `${s.color}20`, border: `1px solid ${s.color}40` }}>
