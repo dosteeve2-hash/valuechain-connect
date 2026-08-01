@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
-import { TrendingUp, Eye, FileText, Package, Star, ArrowUpRight } from 'lucide-react'
+import { TrendingUp, Eye, FileText, Package, Star, ArrowUpRight, Send, CheckCircle2, Clock, XCircle, Coins, ArrowRight, Users2 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Link from 'next/link'
 
 const MOCK_STATS = {
   offresActives: 3, vuesTotal: 847, devisReçus: 12,
@@ -28,6 +29,23 @@ const STAT_CARDS = [
   { label: 'Vues totales', value: MOCK_STATS.vuesTotal.toLocaleString('fr'), icon: Eye, color: '#00BCD4', sub: '+124 cette semaine' },
   { label: 'Devis reçus', value: MOCK_STATS.devisReçus.toString(), icon: FileText, color: '#D4AF37', sub: '3 en attente' },
   { label: 'Revenu total', value: (MOCK_STATS.revenuTotal / 1000000).toFixed(1) + 'M FCFA', icon: TrendingUp, color: '#00BCD4', sub: '+18% vs mois dernier' },
+]
+
+// ─── Données acheteur mock ───────────────────────────────────────────────────
+
+const MOCK_ACHETEUR_STATS = [
+  { label: 'Demandes envoyées', value: '18',          icon: Send,          color: '#D4AF37', sub: '+3 ce mois' },
+  { label: 'En attente réponse', value: '5',          icon: Clock,         color: '#00D4FF', sub: 'Délai moy. 2j' },
+  { label: 'Acceptées',          value: '11',         icon: CheckCircle2,  color: '#22d98a', sub: '61% de succès' },
+  { label: 'Total XOF engagé',   value: '6,2M FCFA',  icon: Coins,         color: '#D4AF37', sub: '3 contrats actifs' },
+]
+
+const MOCK_TIMELINE = [
+  { id: '1', type: 'accepted', culture: 'Sésame', producteur: 'A. Sawadogo', date: 'Il y a 2h',  montant: 1_360_000, color: '#22d98a', icon: CheckCircle2 },
+  { id: '2', type: 'sent',     culture: 'Niébé',  producteur: 'M. Ouédraogo', date: 'Hier',      montant: 756_000,   color: '#D4AF37',  icon: Send },
+  { id: '3', type: 'pending',  culture: 'Karité', producteur: 'F. Traoré',   date: 'Il y a 3j',  montant: 998_500,   color: '#00D4FF',  icon: Clock },
+  { id: '4', type: 'accepted', culture: 'Coton',  producteur: 'A. Diallo',   date: 'Il y a 5j',  montant: 2_280_000, color: '#22d98a', icon: CheckCircle2 },
+  { id: '5', type: 'rejected', culture: 'Sorgho', producteur: 'H. Tapsoba', date: 'Il y a 8j',  montant: 480_000,   color: '#ef4444',  icon: XCircle },
 ]
 
 function fmt(n: number) { return n.toLocaleString('fr') + ' FCFA' }
@@ -136,6 +154,120 @@ export default function DashboardClient() {
           </CardContent>
         </Card>
       </motion.div>
+      {/* ── Stats acheteur ─────────────────────────────────────────────────── */}
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ type: 'spring' as const, delay: 0.55 }}>
+        <div className="flex items-center gap-3 mb-5">
+          <Users2 className="w-5 h-5" style={{ color: '#D4AF37' }} />
+          <h2 className="text-white font-bold text-lg">Activité acheteur</h2>
+        </div>
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+          {MOCK_ACHETEUR_STATS.map((s, i) => (
+            <motion.div key={s.label} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring' as const, delay: 0.6 + i * 0.07 }}>
+              <Card className="bg-navy-card border-white/10 hover:border-[#D4AF37]/30 transition-all duration-300">
+                <CardContent className="pt-5 pb-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center"
+                      style={{ background: `${s.color}18`, border: `1px solid ${s.color}28` }}>
+                      <s.icon className="w-4 h-4" style={{ color: s.color }} />
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-green-400 opacity-60" />
+                  </div>
+                  <div className="text-2xl font-black text-white mb-0.5">{s.value}</div>
+                  <div className="text-xs text-gray-400 mb-1">{s.label}</div>
+                  <div className="text-xs font-medium" style={{ color: s.color }}>{s.sub}</div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ── Timeline activités récentes + CTA ──────────────────────────────── */}
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ type: 'spring' as const, delay: 0.7 }}
+        className="grid lg:grid-cols-3 gap-6">
+
+        {/* Timeline */}
+        <div className="lg:col-span-2">
+          <Card className="bg-navy-card border-white/10 h-full">
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-white text-base font-bold">Activités récentes</CardTitle>
+                <span className="text-xs text-gray-500">{MOCK_TIMELINE.length} dernières</span>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {MOCK_TIMELINE.map((item) => (
+                  <div key={item.id} className="flex items-center gap-4 p-3 rounded-xl border border-white/5 hover:border-white/10 transition-all"
+                    style={{ background: 'rgba(255,255,255,0.02)' }}>
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                      style={{ background: `${item.color}15`, border: `1px solid ${item.color}25` }}>
+                      <item.icon className="w-4 h-4" style={{ color: item.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-white">
+                        {item.culture} — <span className="font-normal text-gray-400">{item.producteur}</span>
+                      </p>
+                      <p className="text-xs text-gray-500 mt-0.5">{item.date}</p>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <p className="text-sm font-bold font-mono" style={{ color: item.color }}>
+                        {item.montant.toLocaleString('fr')}
+                      </p>
+                      <p className="text-xs text-gray-500">FCFA</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* CTA Matching */}
+        <div className="flex flex-col gap-4">
+          <Card className="flex-1 border-[#D4AF37]/20 hover:border-[#D4AF37]/40 transition-all duration-300 overflow-hidden relative"
+            style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(0,212,255,0.04))' }}>
+            <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-10"
+              style={{ background: '#D4AF37', transform: 'translate(30%, -30%)' }} />
+            <CardContent className="pt-8 pb-6 flex flex-col items-start gap-4 relative">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)' }}>
+                <Users2 className="w-6 h-6 text-[#0A1628]" />
+              </div>
+              <div>
+                <h3 className="text-white font-bold text-lg leading-tight mb-1">
+                  Trouvez vos producteurs
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  10+ producteurs vérifiés au Burkina Faso. Sésame, Karité, Coton, Niébé et plus.
+                </p>
+              </div>
+              <Link href="/matching"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all hover:brightness-110 mt-auto"
+                style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)', color: '#0A1628' }}>
+                Découvrir les offres
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* Mini stat engagé */}
+          <Card className="border-white/10 bg-navy-card">
+            <CardContent className="pt-5 pb-4">
+              <p className="text-xs text-gray-400 mb-1">Total engagé YTD</p>
+              <p className="text-2xl font-black" style={{ color: '#D4AF37' }}>6,2M FCFA</p>
+              <div className="mt-3 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: '62%', background: 'linear-gradient(90deg, #D4AF37, #E8C84A)' }} />
+              </div>
+              <p className="text-xs text-gray-500 mt-1.5">62% de l&apos;objectif annuel</p>
+            </CardContent>
+          </Card>
+        </div>
+      </motion.div>
+
     </div>
   )
 }

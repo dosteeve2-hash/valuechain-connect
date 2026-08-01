@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, ScrollText, MessageSquare, Boxes, Truck } from 'lucide-react'
+import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, ScrollText, MessageSquare, Boxes, Truck, Users2 } from 'lucide-react'
 
 const NAV_ITEMS = [
   { href: '/dashboard',                 label: 'Tableau de bord', icon: LayoutDashboard },
+  { href: '/matching',                  label: 'Matching',        icon: Users2 },
   { href: '/catalogue',                 label: 'Catalogue',       icon: ShoppingBag },
   { href: '/produits',                  label: 'Produits',        icon: Boxes },
   { href: '/livraisons',               label: 'Livraisons',      icon: Truck },
