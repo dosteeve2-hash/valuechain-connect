@@ -3,14 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Truck, Package, CheckCircle, Clock, AlertTriangle, X,
-  MapPin, Calendar, Hash, ArrowRight,
+  Truck, CheckCircle, Clock, AlertTriangle, X,
+  MapPin, Calendar, Hash,
 } from "lucide-react";
 
 const GOLD   = "#D4AF37";
 const CYAN   = "#00D4FF";
 const GREEN  = "#22c55e";
-const ORANGE = "#fb923c";
 const RED    = "#ef4444";
 const TEXT2  = "#94a3b8";
 

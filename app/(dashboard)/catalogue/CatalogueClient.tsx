@@ -154,7 +154,7 @@ export default function CatalogueClient() {
                   </Pie>
                   <Tooltip
                     contentStyle={{ backgroundColor: '#0F2040', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 12, color: '#fff' }}
-                    formatter={(v: any) => [`${v} produit(s)`, '']}
+                    formatter={(v) => [`${v} produit(s)`, '']}
                   />
                   <Legend wrapperStyle={{ fontSize: 12, color: '#9CA3AF' }} />
                 </PieChart>
