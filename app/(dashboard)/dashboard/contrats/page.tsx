@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  FileText, TrendingUp, CheckCircle, Clock, Truck,
+  FileText, TrendingUp, CheckCircle,
   Package, X, Printer, ChevronRight, Plus,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
