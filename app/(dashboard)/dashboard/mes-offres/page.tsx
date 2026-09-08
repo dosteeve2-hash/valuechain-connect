@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { formatNombre } from '@/lib/fcfa'
 
 interface Offre {
   id: string
@@ -236,7 +237,7 @@ export default function MesOffresPage() {
         <div className="grid grid-cols-3 gap-4">
           {[
             { label: 'Offres actives', value: nbActives.toString(), icon: Package, color: '#D4AF37' },
-            { label: 'Vues totales', value: totalVues.toLocaleString('fr'), icon: Eye, color: '#00BCD4' },
+            { label: 'Vues totales', value: formatNombre(totalVues), icon: Eye, color: '#00BCD4' },
             { label: 'Devis reçus', value: totalDevis.toString(), icon: FileText, color: '#D4AF37' },
           ].map((s, i) => (
             <motion.div key={s.label}
@@ -305,7 +306,7 @@ export default function MesOffresPage() {
                           <div className="flex items-center gap-4 text-xs text-gray-500">
                             <div className="flex items-center gap-1">
                               <Tag className="w-3 h-3" />
-                              {offre.quantite} · {offre.prix.toLocaleString('fr')} FCFA/{offre.unite}
+                              {offre.quantite} · {formatNombre(offre.prix)} FCFA/{offre.unite}
                             </div>
                             <div className="flex items-center gap-1">
                               <MapPin className="w-3 h-3" />

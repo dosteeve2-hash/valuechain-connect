@@ -6,6 +6,7 @@ import { TrendingUp, Eye, FileText, Package, Star, ArrowUpRight, Send, CheckCirc
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
+import { formatFCFA, formatNombre } from '@/lib/fcfa'
 
 const MOCK_STATS = {
   offresActives: 3, vuesTotal: 847, devisReçus: 12,
@@ -26,7 +27,7 @@ const MOCK_OFFRES = [
 
 const STAT_CARDS = [
   { label: 'Offres actives', value: MOCK_STATS.offresActives.toString(), icon: Package, color: '#D4AF37', sub: '+1 ce mois' },
-  { label: 'Vues totales', value: MOCK_STATS.vuesTotal.toLocaleString('fr'), icon: Eye, color: '#00BCD4', sub: '+124 cette semaine' },
+  { label: 'Vues totales', value: formatNombre(MOCK_STATS.vuesTotal), icon: Eye, color: '#00BCD4', sub: '+124 cette semaine' },
   { label: 'Devis reçus', value: MOCK_STATS.devisReçus.toString(), icon: FileText, color: '#D4AF37', sub: '3 en attente' },
   { label: 'Revenu total', value: (MOCK_STATS.revenuTotal / 1000000).toFixed(1) + 'M FCFA', icon: TrendingUp, color: '#00BCD4', sub: '+18% vs mois dernier' },
 ]
@@ -48,7 +49,6 @@ const MOCK_TIMELINE = [
   { id: '5', type: 'rejected', culture: 'Sorgho', producteur: 'H. Tapsoba', date: 'Il y a 8j',  montant: 480_000,   color: '#ef4444',  icon: XCircle },
 ]
 
-function fmt(n: number) { return n.toLocaleString('fr') + ' FCFA' }
 
 export default function DashboardClient() {
   return (
@@ -99,7 +99,7 @@ export default function DashboardClient() {
                   tickFormatter={(v: number) => `${(v / 1000000).toFixed(1)}M`} />
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0F2040', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 12, color: '#fff' }}
-                  formatter={(v: number) => [fmt(v), 'Ventes']}
+                  formatter={(v: number) => [formatFCFA(v), 'Ventes']}
                 />
                 <Bar dataKey="ventes" fill="#D4AF37" radius={[8, 8, 0, 0]} />
               </BarChart>
@@ -138,7 +138,7 @@ export default function DashboardClient() {
                   </div>
                   <div className="hidden md:flex items-center gap-6 text-sm">
                     <div className="text-right">
-                      <div className="text-white font-bold">{offre.prix.toLocaleString('fr')}</div>
+                      <div className="text-white font-bold">{formatNombre(offre.prix)}</div>
                       <div className="text-gray-400 text-xs">FCFA/{offre.unite}</div>
                     </div>
                     <div className="flex items-center gap-3 text-gray-400">
@@ -215,7 +215,7 @@ export default function DashboardClient() {
                     </div>
                     <div className="text-right shrink-0">
                       <p className="text-sm font-bold font-mono" style={{ color: item.color }}>
-                        {item.montant.toLocaleString('fr')}
+                        {formatNombre(item.montant)}
                       </p>
                       <p className="text-xs text-gray-500">FCFA</p>
                     </div>

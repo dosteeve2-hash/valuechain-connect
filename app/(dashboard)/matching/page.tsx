@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, X, MapPin, Package, CheckCircle2, SlidersHorizontal, Leaf, Send } from 'lucide-react'
+import { formatFCFA, formatNombre, parseMontant } from '@/lib/fcfa'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -239,7 +240,7 @@ export default function MatchingPage() {
                 {/* Prix max */}
                 <div>
                   <label className="block text-xs font-medium text-gray-400 mb-2">
-                    Prix max : <span className="text-white font-bold">{prixMax.toLocaleString('fr')} FCFA/kg</span>
+                    Prix max : <span className="text-white font-bold">{formatNombre(prixMax)} FCFA/kg</span>
                   </label>
                   <input
                     type="range" min={100} max={1000} step={50} value={prixMax}
@@ -320,7 +321,7 @@ export default function MatchingPage() {
               <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/5">
                 <div>
                   <span className="text-lg font-black text-white">
-                    {prod.prix.toLocaleString('fr')}
+                    {formatNombre(prod.prix)}
                   </span>
                   <span className="text-xs text-gray-400 ml-1">FCFA/kg</span>
                 </div>
@@ -374,7 +375,7 @@ export default function MatchingPage() {
                     Stock : {fmtKg(selectedProd.quantite)}
                   </span>
                   <span className="px-2.5 py-1 rounded-lg bg-white/5 text-gray-300">
-                    Prix affichage : {selectedProd.prix.toLocaleString('fr')} FCFA/kg
+                    Prix affichage : {formatNombre(selectedProd.prix)} FCFA/kg
                   </span>
                 </div>
               </div>
@@ -404,15 +405,24 @@ export default function MatchingPage() {
                   </div>
                 </div>
 
-                {form.quantite && form.prixPropose && (
-                  <div className="px-3 py-2 rounded-xl text-xs flex justify-between"
-                    style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)' }}>
-                    <span className="text-gray-400">Total estimé</span>
-                    <span className="font-bold" style={{ color: '#D4AF37' }}>
-                      {(Number(form.quantite) * Number(form.prixPropose)).toLocaleString('fr')} FCFA
-                    </span>
-                  </div>
-                )}
+                {form.quantite && form.prixPropose && (() => {
+                  // `Number('12,5')` vaut NaN : un utilisateur francophone tape la
+                  // virgule, et le total affichait « NaN FCFA ». Les deux champs
+                  // sont lus separement — multiplier un `null` donnerait 0, ce qui
+                  // se lirait comme un montant nul au lieu d'une saisie invalide.
+                  const q = parseMontant(form.quantite)
+                  const p = parseMontant(form.prixPropose)
+                  const total = q !== null && p !== null ? q * p : null
+                  return (
+                    <div className="px-3 py-2 rounded-xl text-xs flex justify-between"
+                      style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)' }}>
+                      <span className="text-gray-400">Total estimé</span>
+                      <span className="font-bold" style={{ color: '#D4AF37' }}>
+                        {total === null ? 'montant invalide' : formatFCFA(total)}
+                      </span>
+                    </div>
+                  )
+                })()}
 
                 <div>
                   <label className="block text-xs font-medium text-gray-400 mb-1.5">Message au producteur</label>

@@ -9,6 +9,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { formatFCFA } from '@/lib/fcfa'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -98,7 +99,6 @@ const ETAPES = ['Offre', 'Négociation', 'Signature', 'Livraison', 'Paiement']
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
 
-function fmt(n: number) { return n.toLocaleString('fr') + ' FCFA' }
 function fmtDate(d: string) {
   return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })
 }
@@ -243,7 +243,7 @@ function ModalNouveauContrat({ onClose }: { onClose: () => void }) {
           {valeurTotale > 0 && (
             <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-xl px-4 py-3 flex items-center justify-between">
               <span className="text-white/60 text-xs">Valeur totale</span>
-              <span className="text-[#D4AF37] font-bold">{fmt(valeurTotale)}</span>
+              <span className="text-[#D4AF37] font-bold">{formatFCFA(valeurTotale)}</span>
             </div>
           )}
 
@@ -395,8 +395,8 @@ export default function ContratsPage() {
                         </div>
                       </div>
                       <div className="text-right flex-shrink-0">
-                        <div className="text-white font-black">{fmt(valeur)}</div>
-                        <div className="text-xs text-gray-500">{c.quantite} tonnes · {fmt(c.prixTonne)}/t</div>
+                        <div className="text-white font-black">{formatFCFA(valeur)}</div>
+                        <div className="text-xs text-gray-500">{c.quantite} tonnes · {formatFCFA(c.prixTonne)}/t</div>
                       </div>
                     </div>
 
