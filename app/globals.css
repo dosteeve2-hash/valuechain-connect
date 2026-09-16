@@ -56,3 +56,27 @@
   .glow-gold { box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
   .glow-cyan { box-shadow: 0 0 30px rgba(0, 188, 212, 0.2); }
 }
+
+/*
+  ───────── Mouvement réduit ─────────
+  Dix fichiers de ce dépôt animent avec framer-motion, et aucun ne consultait la
+  préférence système. Pour une personne sujette au vertige vestibulaire, une page qui
+  glisse et s'agrandit à chaque changement d'écran n'est pas une finition : c'est un
+  motif de fermer l'onglet.
+
+  Cette règle couvre TOUT — transitions CSS, `animation`, `scroll-behavior`, et les
+  transforms que framer-motion pose en style en ligne, parce qu'il les anime via des
+  transitions que `!important` neutralise. Les animations ne sont pas supprimées : leur
+  durée est ramenée à un battement, pour que les composants qui attendent un événement
+  `animationend` ou `transitionend` le reçoivent quand même au lieu de rester bloqués.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
