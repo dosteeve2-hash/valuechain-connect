@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { formatNombre } from '@/lib/fcfa'
 
 type Disponibilite = 'En stock' | 'Stock limité' | 'Rupture'
 
@@ -271,7 +272,7 @@ export default function CatalogueClient() {
                   <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
                     <div>
                       <div className="text-xl font-black text-white">
-                        {offre.prixUnitaire.toLocaleString('fr')}
+                        {formatNombre(offre.prixUnitaire)}
                       </div>
                       <div className="text-xs text-gray-400">FCFA / {offre.unite}</div>
                     </div>

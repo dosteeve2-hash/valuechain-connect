@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { formatFCFA } from '@/lib/fcfa'
 
 type Statut = 'Confirmée' | 'En préparation' | 'En transit' | 'Livrée' | 'Annulée'
 
@@ -93,7 +94,6 @@ const STATUT_CONFIG: Record<Statut, { color: string; bg: string; icon: LucideIco
 
 const STATUTS_FILTER: (Statut | 'Toutes')[] = ['Toutes', 'Confirmée', 'En préparation', 'En transit', 'Livrée']
 
-function fmt(n: number) { return n.toLocaleString('fr') + ' FCFA' }
 function fmtDate(d: string) {
   return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })
 }
@@ -234,7 +234,7 @@ export default function CommandesPage() {
                         </div>
                       </div>
                       <div className="text-right flex-shrink-0">
-                        <div className="text-white font-black text-lg">{fmt(cmd.montant)}</div>
+                        <div className="text-white font-black text-lg">{formatFCFA(cmd.montant)}</div>
                         <div className="text-xs text-gray-500">{cmd.quantite}</div>
                       </div>
                     </div>

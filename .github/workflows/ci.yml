@@ -31,6 +31,9 @@ jobs:
       - name: Navigation — une seule entrée de menu allumée
         run: npm run check:navigation
 
+      - name: Tests
+        run: npm test
+
       - name: Build
         run: npm run build
         env:

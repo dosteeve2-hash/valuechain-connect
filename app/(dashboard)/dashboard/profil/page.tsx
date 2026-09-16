@@ -9,6 +9,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { formatFCFA, formatNombre } from '@/lib/fcfa'
 
 const MOCK_PROFIL = {
   nom: 'Coopérative Koudougou',
@@ -33,7 +34,6 @@ const TRANSACTIONS = [
   { id: 'CMD-F04', produit: 'Beurre de karité', acheteur: "L'Oréal Sourcing", montant: 4100000, date: '2026-05-22', statut: 'Livrée' },
 ]
 
-function fmt(n: number) { return n.toLocaleString('fr') + ' FCFA' }
 function fmtDate(d: string) {
   return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })
 }
@@ -149,9 +149,9 @@ export default function ProfilPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               {[
-                { label: 'CA total', value: fmt(MOCK_PROFIL.caTotal), color: '#D4AF37' },
+                { label: 'CA total', value: formatFCFA(MOCK_PROFIL.caTotal), color: '#D4AF37' },
                 { label: 'Transactions', value: MOCK_PROFIL.transactionsTotal.toString(), color: '#00BCD4' },
-                { label: 'Membres coopérative', value: MOCK_PROFIL.membres.toLocaleString('fr'), color: '#D4AF37' },
+                { label: 'Membres coopérative', value: formatNombre(MOCK_PROFIL.membres), color: '#D4AF37' },
               ].map(s => (
                 <div key={s.label} className="flex items-center justify-between p-3 rounded-xl"
                   style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}>
@@ -246,7 +246,7 @@ export default function ProfilPage() {
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="text-right">
-                      <div className="text-white font-bold text-sm">{fmt(t.montant)}</div>
+                      <div className="text-white font-bold text-sm">{formatFCFA(t.montant)}</div>
                       <div className="text-gray-500 text-xs font-mono">{t.id}</div>
                     </div>
                     <Badge variant={t.statut === 'Livrée' ? 'green' : 'gold'}>{t.statut}</Badge>
