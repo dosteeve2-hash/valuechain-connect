@@ -6,6 +6,7 @@ import { MessageSquare, TrendingUp, Clock, CheckCircle, FileText, MapPin, Search
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
+import { formatFCFA, formatNombre } from '@/lib/fcfa'
 
 type StatutType = 'En négociation' | 'Accepté' | 'En attente' | 'Refusé'
 
@@ -30,7 +31,6 @@ const STATUT_CONFIG: Record<StatutType, { label: string; color: string; bg: stri
 
 const STATUT_FILTERS: Array<'Tous' | StatutType> = ['Tous', 'En négociation', 'Accepté', 'En attente', 'Refusé']
 
-function fmt(n: number) { return n.toLocaleString('fr') + ' FCFA' }
 
 export default function DevisClient() {
   const [devisList, setDevisList] = useState(INITIAL_DEVIS)
@@ -164,12 +164,12 @@ export default function DevisClient() {
                       </div>
                       <div className="flex flex-col items-end gap-3">
                         <div className="text-right">
-                          <div className="text-2xl font-black text-white">{fmt(devis.montantTotal)}</div>
+                          <div className="text-2xl font-black text-white">{formatFCFA(devis.montantTotal)}</div>
                           <div className="text-sm text-gray-400">{devis.quantite}</div>
                         </div>
                         <div className="text-right text-xs text-gray-500">
-                          <div>Prix proposé : <span className="text-white font-semibold">{devis.prixPropose.toLocaleString('fr')} FCFA</span></div>
-                          <div>Prix demandé : <span className="text-gray-300">{devis.prixDemande.toLocaleString('fr')} FCFA</span></div>
+                          <div>Prix proposé : <span className="text-white font-semibold">{formatNombre(devis.prixPropose)} FCFA</span></div>
+                          <div>Prix demandé : <span className="text-gray-300">{formatNombre(devis.prixDemande)} FCFA</span></div>
                           <div className="mt-1">Envoyé le {devis.dateEnvoi}</div>
                         </div>
                         <Button variant="outline" size="sm" className="gap-2"
@@ -223,11 +223,11 @@ export default function DevisClient() {
                 </div>
                 <div className="flex justify-between pt-2">
                   <span className="text-gray-400">Montant total</span>
-                  <span className="text-white font-bold">{fmt(modalDevis.montantTotal)}</span>
+                  <span className="text-white font-bold">{formatFCFA(modalDevis.montantTotal)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Prix proposé</span>
-                  <span className="text-white">{modalDevis.prixPropose.toLocaleString('fr')} FCFA</span>
+                  <span className="text-white">{formatNombre(modalDevis.prixPropose)} FCFA</span>
                 </div>
               </div>
 
