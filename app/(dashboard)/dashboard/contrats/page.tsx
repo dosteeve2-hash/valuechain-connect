@@ -47,7 +47,7 @@ const MOCK_CONTRATS: Contrat[] = [
   {
     id: 'CTR-002',
     producteur: 'Femmes Sahel SCOOP',
-    transformateur: "L'Oréal Sourcing",
+    transformateur: "Acheteur cosmétique (démo)",
     produit: 'Beurre de karité',
     quantite: 5,
     prixTonne: 920000,
@@ -59,7 +59,7 @@ const MOCK_CONTRATS: Contrat[] = [
   {
     id: 'CTR-003',
     producteur: 'AgroTrack Exports',
-    transformateur: 'Sesaco Japan',
+    transformateur: 'Acheteur Japon (démo)',
     produit: 'Sésame blanc',
     quantite: 8,
     prixTonne: 450000,
@@ -71,7 +71,7 @@ const MOCK_CONTRATS: Contrat[] = [
   {
     id: 'CTR-004',
     producteur: 'COOPAG Nord',
-    transformateur: 'Akosombo Textiles',
+    transformateur: 'Filature Ghana (démo)',
     produit: 'Coton grade A',
     quantite: 20,
     prixTonne: 270000,

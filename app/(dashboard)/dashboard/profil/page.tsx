@@ -12,11 +12,11 @@ import { Button } from '@/components/ui/button'
 import { formatFCFA, formatNombre } from '@/lib/fcfa'
 
 const MOCK_PROFIL = {
-  nom: 'Coopérative Koudougou',
+  nom: 'Coopérative de démonstration',
   type: 'Producteur',
   pays: 'Burkina Faso',
-  telephone: '+226 25 33 44 55',
-  email: 'contact@coop-koudougou.bf',
+  telephone: '+226 00 00 00 00',
+  email: 'demo@example.com',
   anneeCreation: 2018,
   membres: 247,
   certifications: ['Organique ECOCERT', 'Fair Trade'],
@@ -25,13 +25,13 @@ const MOCK_PROFIL = {
   avis: 23,
   transactionsTotal: 5,
   caTotal: 18750000,
-  description: 'Coopérative agricole réunissant 247 producteurs de la région du Centre-Ouest du Burkina Faso. Nous pratiquons une agriculture biologique certifiée et garantissons une traçabilité complète de nos produits, du champ à l\'exportation. Membres actifs du réseau FORGE Afrika depuis 2022.',
+  description: 'Coopérative agricole réunissant 247 producteurs de la région du Centre-Ouest du Burkina Faso. Nous pratiquons une agriculture biologique certifiée et garantissons une traçabilité complète de nos produits, du champ à l\'exportation.',
 }
 
 const TRANSACTIONS = [
-  { id: 'CMD-003', produit: 'Sésame blanc', acheteur: 'Sesaco Japan', montant: 2250000, date: '2026-07-06', statut: 'Livrée' },
-  { id: 'CMD-001', produit: 'Coton grade A', acheteur: 'Akosombo Textiles', montant: 5400000, date: '2026-07-11', statut: 'En cours' },
-  { id: 'CMD-F04', produit: 'Beurre de karité', acheteur: "L'Oréal Sourcing", montant: 4100000, date: '2026-05-22', statut: 'Livrée' },
+  { id: 'CMD-003', produit: 'Sésame blanc', acheteur: 'Acheteur Japon (démo)', montant: 2250000, date: '2026-07-06', statut: 'Livrée' },
+  { id: 'CMD-001', produit: 'Coton grade A', acheteur: 'Filature Ghana (démo)', montant: 5400000, date: '2026-07-11', statut: 'En cours' },
+  { id: 'CMD-F04', produit: 'Beurre de karité', acheteur: "Acheteur cosmétique (démo)", montant: 4100000, date: '2026-05-22', statut: 'Livrée' },
 ]
 
 function fmtDate(d: string) {

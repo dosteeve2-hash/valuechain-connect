@@ -65,7 +65,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto text-center relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring' as const, duration: 0.6 }}>
             <Badge className="mb-6 px-4 py-1.5 text-sm border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">
-              🌍 Zone CEDEAO — 15 pays
+              🌍 Afrique de l&apos;Ouest
             </Badge>
           </motion.div>
           <motion.h1

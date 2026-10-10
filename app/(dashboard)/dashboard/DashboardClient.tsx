@@ -242,7 +242,7 @@ export default function DashboardClient() {
                   Trouvez vos producteurs
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  10+ producteurs vérifiés au Burkina Faso. Sésame, Karité, Coton, Niébé et plus.
+                  Producteurs de démonstration : sésame, karité, coton, niébé et plus.
                 </p>
               </div>
               <Link href="/matching"

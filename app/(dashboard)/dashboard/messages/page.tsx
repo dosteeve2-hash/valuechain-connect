@@ -49,7 +49,7 @@ const MOCK_CONVERSATIONS: Conversation[] = [
   {
     id: '2',
     nom: 'Fatoumata Diallo',
-    role: 'Acheteur · L\'Oréal Sourcing',
+    role: 'Acheteur · cosmétique (démo)',
     initiales: 'FD',
     couleur: '#00BCD4',
     dernier: 'Les certificats bio sont requis.',
@@ -79,7 +79,7 @@ const MOCK_CONVERSATIONS: Conversation[] = [
   {
     id: '4',
     nom: 'Issouf Kaboré',
-    role: 'Acheteur · Akosombo Textiles',
+    role: 'Acheteur · filature, Ghana (démo)',
     initiales: 'IK',
     couleur: '#F59E0B',
     dernier: 'On étudie votre proposition.',
