@@ -1,16 +1,16 @@
-# PRD — ValueChain Connect
+# PRD — AgroLink
 
 ## Résumé exécutif
-ValueChain Connect est la marketplace B2B qui connecte producteurs (coopératives, éleveurs, agriculteurs) et transformateurs/exportateurs en Afrique de l'Ouest — zone CEDEAO. C'est la "clé de voûte" de l'écosystème FORGE Afrika : tous les autres produits (AgroTrack BF, MillTrack, LivestockOS, TAAMA) produisent de la valeur que ValueChain Connect monétise en la connectant à des acheteurs. Deux rôles : Vendeur (producteur/coopérative) et Acheteur (transformateur/exportateur).
+AgroLink est la marketplace B2B qui connecte producteurs (coopératives, éleveurs, agriculteurs) et transformateurs/exportateurs en Afrique de l'Ouest — zone CEDEAO. C'est la "clé de voûte" de l'écosystème FORGE Afrika : tous les autres produits (AgroTrack BF, MillTrack, LivestockOS, TAAMA) produisent de la valeur qu'AgroLink monétise en la connectant à des acheteurs. Deux rôles : Vendeur (producteur/coopérative) et Acheteur (transformateur/exportateur).
 
 ## Motivation originale
 > "Marketplace B2B zone CEDEAO. 2 rôles : Vendeur (producteur/coopérative) et Acheteur (transformateur/exportateur)."
 > — Contexte produit issu de CLAUDE.md
 
-Les producteurs (coton, sésame, karité, maïs, bétail) vendent à des intermédiaires à bas prix. Les transformateurs achètent à ces mêmes intermédiaires à prix fort. La marge d'intermédiation est capturée par des acteurs qui n'ajoutent pas de valeur. Les deux côtés perdent. ValueChain Connect court-circuite ces intermédiaires.
+Les producteurs (coton, sésame, karité, maïs, bétail) vendent à des intermédiaires à bas prix. Les transformateurs achètent à ces mêmes intermédiaires à prix fort. La marge d'intermédiation est capturée par des acteurs qui n'ajoutent pas de valeur. Les deux côtés perdent. AgroLink court-circuite ces intermédiaires.
 
 ## Vision et ambition
-Être l'"Alibaba des matières premières agricoles et industrielles africaines" — la plateforme de référence pour le commerce B2B intrarégional en Afrique de l'Ouest. L'ambition à terme : que tout transformateur cherchant du sésame au Burkina Faso ou de l'anacarde en Côte d'Ivoire passe par ValueChain Connect. La plateforme capture une commission sur chaque transaction et les données de flux commerciaux deviennent elles-mêmes un actif stratégique.
+Être l'"Alibaba des matières premières agricoles et industrielles africaines" — la plateforme de référence pour le commerce B2B intrarégional en Afrique de l'Ouest. L'ambition à terme : que tout transformateur cherchant du sésame au Burkina Faso ou de l'anacarde en Côte d'Ivoire passe par AgroLink. La plateforme capture une commission sur chaque transaction et les données de flux commerciaux deviennent elles-mêmes un actif stratégique.
 
 ## Problème résolu
 1. **Asymétrie d'information** — les producteurs ne connaissent pas les prix de marché des acheteurs ; les acheteurs ne savent pas qui produit quoi où.
@@ -69,11 +69,11 @@ Charte      Navy #0A1628, Gold #D4AF37, Cyan #00BCD4
 ```
 
 ## Intégration écosystème FORGE Afrika
-ValueChain Connect est le **point de convergence** de tout l'écosystème :
-- **AgroTrack BF → ValueChain Connect** : les coopératives listent automatiquement leur production disponible
-- **MillTrack → ValueChain Connect** : les transformateurs cherchent leurs intrants et listent leurs produits finis
-- **LivestockOS → ValueChain Connect** : les éleveurs vendent animaux et produits animaux (lait, œufs)
-- **TAAMA → ValueChain Connect** : les PMEs TAAMA sourcent et vendent via la plateforme
+AgroLink est le **point de convergence** de tout l'écosystème :
+- **AgroTrack BF → AgroLink** : les coopératives listent automatiquement leur production disponible
+- **MillTrack → AgroLink** : les transformateurs cherchent leurs intrants et listent leurs produits finis
+- **LivestockOS → AgroLink** : les éleveurs vendent animaux et produits animaux (lait, œufs)
+- **TAAMA → AgroLink** : les PMEs TAAMA sourcent et vendent via la plateforme
 - **FORGE Afrika HQ** : les métriques de transactions (volume, valeur, pays) remontent au dashboard groupe comme indicateur phare de l'impact de l'écosystème
 
 ## Feuille de route

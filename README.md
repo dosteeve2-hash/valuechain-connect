@@ -1,4 +1,4 @@
-# 🌍 ValueChain Connect
+# 🌍 AgroLink
 
 > La marketplace B2B qui connecte producteurs et transformateurs en Afrique de l'Ouest.
 
@@ -18,7 +18,7 @@ Les producteurs (coton, sésame, karité, maïs) vendent à des intermédiaires 
 
 ## 💡 Solution
 
-ValueChain Connect est la plateforme B2B qui permet à :
+AgroLink est la plateforme B2B qui permet à :
 - **Producteurs** de lister leurs matières premières avec prix, qualité, certifications, photos
 - **Transformateurs** de sourcer directement avec filtres avancés
 - **Coopératives** de grouper des offres pour atteindre les volumes requis
@@ -49,7 +49,7 @@ Zone CEDEAO — Burkina Faso, Côte d'Ivoire, Sénégal, Ghana, Mali.
 
 ## 🌍 Écosystème FORGE Afrika
 
-ValueChain Connect est la **clé de voûte** de l'écosystème [FORGE Afrika](https://github.com/dosteeve2-hash/forge-afrika) — c'est là que la valeur créée par tous les autres produits se monétise.
+AgroLink est la **clé de voûte** de l'écosystème [FORGE Afrika](https://github.com/dosteeve2-hash/forge-afrika) — c'est là que la valeur créée par tous les autres produits se monétise.
 
 **Produits alimentant la plateforme :**
 - [AgroTrack BF](https://github.com/dosteeve2-hash/agrotrack-bf) — Coopératives listant leur production

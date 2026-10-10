@@ -1,7 +1,7 @@
-# ValueChain Connect — Lovable Protocol
+# AgroLink — Lovable Protocol
 
 ## Vision
-ValueChain Connect est la clé de voûte de l'écosystème FORGE Afrika : la marketplace B2B qui élimine les intermédiaires entre producteurs (coton, sésame, karité, maïs) et transformateurs en Afrique de l'Ouest CEDEAO. Producteurs vendent au juste prix, transformateurs s'approvisionnent directement — la valeur reste dans l'écosystème africain.
+AgroLink est la clé de voûte de l'écosystème FORGE Afrika : la marketplace B2B qui élimine les intermédiaires entre producteurs (coton, sésame, karité, maïs) et transformateurs en Afrique de l'Ouest CEDEAO. Producteurs vendent au juste prix, transformateurs s'approvisionnent directement — la valeur reste dans l'écosystème africain.
 
 ## URL de production
 https://valuechain-connect.vercel.app

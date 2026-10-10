@@ -130,7 +130,7 @@ export default function OnboardingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring' as const }}
         >
-          <h1 className="text-3xl font-black text-white mb-1">Bienvenue sur ValueChain Connect 🌍</h1>
+          <h1 className="text-3xl font-black text-white mb-1">Bienvenue sur AgroLink 🌍</h1>
           <p className="text-gray-400">Quel est votre rôle sur la plateforme ?</p>
         </motion.div>
 
@@ -206,7 +206,7 @@ export default function OnboardingPage() {
           <span className="text-3xl">{cfg.emoji}</span>
           <h1 className="text-3xl font-black text-white">Guide {cfg.label}</h1>
         </div>
-        <p className="text-gray-400">4 étapes pour démarrer sur ValueChain Connect</p>
+        <p className="text-gray-400">4 étapes pour démarrer sur AgroLink</p>
       </motion.div>
 
       {/* Demo banner */}

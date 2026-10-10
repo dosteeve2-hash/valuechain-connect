@@ -1,4 +1,4 @@
-# ValueChain Connect — Instructions Claude
+# AgroLink — Instructions Claude
 
 ## Stack
 - Next.js 15 App Router + TypeScript strict (0 `any`)

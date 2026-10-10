@@ -86,10 +86,10 @@ function LoginContent() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4"
+    <div className="min-h-screen overflow-x-hidden flex items-center justify-center px-4"
       style={{ backgroundColor: '#0A1628' }}>
 
-      <div className="fixed inset-0 pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl"
           style={{ background: '#D4AF37' }} />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl"
@@ -109,7 +109,7 @@ function LoginContent() {
               <Globe2 className="w-5 h-5 text-[#0A1628]" />
             </div>
             <span className="text-2xl font-black text-white">
-              ValueChain<span style={{ color: '#D4AF37' }}>Connect</span>
+              Agro<span style={{ color: '#D4AF37' }}>Link</span>
             </span>
           </Link>
           <h1 className="text-xl font-bold text-white mt-2">Bon retour 👋</h1>
