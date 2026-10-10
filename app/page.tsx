@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 import {
-  TrendingUp, ShieldCheck, Globe2, ArrowRight,
+  FlaskConical, Database, Globe2, ArrowRight, Handshake,
   Package, Users, BarChart3, Star, ChevronRight,
   Wheat, Droplets, Leaf, Beef, SproutIcon, CircleDot
 } from 'lucide-react'
@@ -21,11 +20,11 @@ const CATEGORIES = [
   { name: 'Bétail', emoji: '🐄', icon: Beef, volume: '320K têtes/an', color: 'from-purple-900/40 to-purple-800/20', border: 'border-purple-700/30' },
 ]
 
-const STATS = [
-  { label: 'Offres actives', value: '47', suffix: '', icon: Package },
-  { label: 'Acheteurs vérifiés', value: '23', suffix: '', icon: ShieldCheck },
-  { label: 'Pays couverts', value: '15', suffix: '', icon: Globe2 },
-  { label: 'FCFA transactés', value: '2.4M', suffix: '', icon: TrendingUp },
+const STATUT = [
+  { label: 'Stade du projet', value: 'Prototype', icon: FlaskConical },
+  { label: 'Catalogue et tableaux de bord', value: 'Démo', icon: Database },
+  { label: 'Zone visée', value: 'CEDEAO', icon: Globe2 },
+  { label: 'Producteurs et transformateurs', value: 'Pilotes recherchés', icon: Handshake },
 ]
 
 const STEPS = [
@@ -33,27 +32,6 @@ const STEPS = [
   { step: '02', title: 'Trouver des partenaires', desc: 'Parcourez le catalogue et filtrez par catégorie, pays, certification. Demandez un devis.', icon: Users, color: '#00BCD4' },
   { step: '03', title: 'Transacter en sécurité', desc: 'Négociez, validez et finalisez vos transactions B2B dans un environnement sécurisé.', icon: BarChart3, color: '#D4AF37' },
 ]
-
-function CountUp({ end, duration = 2000 }: { end: string; duration?: number }) {
-  const [display, setDisplay] = useState('0')
-  useEffect(() => {
-    const num = parseFloat(end.replace('M', ''))
-    const isM = end.includes('M')
-    const steps = 60
-    const inc = num / steps
-    let current = 0
-    let step = 0
-    const timer = setInterval(() => {
-      step++
-      current = Math.min(current + inc, num)
-      if (isM) setDisplay(current.toFixed(1) + 'M')
-      else setDisplay(Math.round(current).toString())
-      if (step >= steps) clearInterval(timer)
-    }, duration / steps)
-    return () => clearInterval(timer)
-  }, [end, duration])
-  return <>{display}</>
-}
 
 export default function HomePage() {
   return (
@@ -105,7 +83,7 @@ export default function HomePage() {
             transition={{ type: 'spring' as const, duration: 0.7, delay: 0.2 }}
             className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
           >
-            La marketplace B2B de référence pour connecter producteurs, coopératives et transformateurs à travers les 15 pays de la CEDEAO.
+            Marketplace B2B en préparation pour connecter producteurs, coopératives et transformateurs de la zone CEDEAO. Prototype : les offres affichées sont des données de démonstration.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -126,16 +104,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
+      {/* STATUT */}
       <section className="py-16 px-6 border-y border-white/5" style={{ background: 'rgba(15,32,64,0.5)' }}>
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {STATS.map((stat, i) => (
+          {STATUT.map((stat, i) => (
             <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ type: 'spring' as const, delay: i * 0.1 }} className="text-center">
               <stat.icon className="w-6 h-6 mx-auto mb-2" style={{ color: '#D4AF37' }} />
-              <div className="text-4xl font-black text-white">
-                <CountUp end={stat.value} />
-              </div>
+              <div className="text-2xl font-black text-white">{stat.value}</div>
               <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
             </motion.div>
           ))}
@@ -202,7 +178,7 @@ export default function HomePage() {
             <div className="text-5xl mb-6">🌍</div>
             <h2 className="text-4xl font-black text-white mb-4">Rejoignez l&apos;écosystème FORGE Afrika</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-              ValueChain Connect est la clé de voûte du commerce agricole B2B en Afrique de l&apos;Ouest. Rejoignez des centaines de producteurs et transformateurs.
+              ValueChain Connect est un prototype. Nous cherchons nos premiers producteurs et transformateurs pilotes en Afrique de l&apos;Ouest.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/dashboard">
