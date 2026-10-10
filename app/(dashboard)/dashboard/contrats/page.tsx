@@ -180,7 +180,7 @@ function ModalNouveauContrat({ onClose }: { onClose: () => void }) {
       >
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-[#D4AF37] font-bold text-lg">Nouveau contrat</h2>
-          <button onClick={onClose} className="text-white/40 hover:text-white">
+          <button onClick={onClose} aria-label="Fermer" className="w-11 h-11 -mr-2 flex items-center justify-center text-white/40 hover:text-white">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -303,10 +303,10 @@ export default function ContratsPage() {
         <motion.div
           initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring' as const }}
-          className="flex items-start justify-between"
+          className="flex flex-wrap items-start justify-between gap-4"
         >
           <div>
-            <h1 className="text-3xl font-black text-white mb-1">Contrats</h1>
+            <h1 className="text-2xl sm:text-3xl font-black text-white mb-1">Contrats</h1>
             <p className="text-gray-400">Gestion des accords B2B et suivi des engagements</p>
           </div>
           {ROLE === 'producteur' && (
@@ -320,7 +320,7 @@ export default function ContratsPage() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {[
             { label: 'Contrats actifs',        value: actifs.toString(),                       icon: CheckCircle, color: '#D4AF37' },
             { label: 'Volume sous contrat',     value: volumeTotal + ' t',                     icon: Package,     color: '#00BCD4' },
@@ -380,7 +380,7 @@ export default function ContratsPage() {
                   style={{ backgroundColor: '#0D1A2D' }}>
                   <CardContent className="pt-5">
                     {/* Header */}
-                    <div className="flex items-start justify-between gap-4 mb-3">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-3">
                       <div className="flex items-start gap-3">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                           style={{ background: cfg.bg, border: `1px solid ${cfg.color}30` }}>
@@ -394,7 +394,7 @@ export default function ContratsPage() {
                           <div className="text-xs text-gray-500 font-mono mt-0.5">{c.id}</div>
                         </div>
                       </div>
-                      <div className="text-right flex-shrink-0">
+                      <div className="sm:text-right sm:flex-shrink-0">
                         <div className="text-white font-black">{formatFCFA(valeur)}</div>
                         <div className="text-xs text-gray-500">{c.quantite} tonnes · {formatFCFA(c.prixTonne)}/t</div>
                       </div>
@@ -413,7 +413,7 @@ export default function ContratsPage() {
                     </div>
 
                     {/* Dates */}
-                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-2">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-400 mb-2">
                       <span>📅 Du {fmtDate(c.dateDebut)}</span>
                       <span>→ {fmtDate(c.dateFin)}</span>
                     </div>

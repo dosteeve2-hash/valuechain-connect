@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Send, Search } from 'lucide-react'
+import { Send, Search, ArrowLeft } from 'lucide-react'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -103,7 +103,7 @@ function Bulle({ msg }: { msg: Message }) {
       transition={{ type: 'spring' as const, damping: 20 }}
       className={`flex ${isMoi ? 'justify-end' : 'justify-start'} mb-3`}
     >
-      <div className={`max-w-[72%] ${isMoi ? 'order-2' : 'order-1'}`}>
+      <div className={`max-w-[85%] md:max-w-[72%] ${isMoi ? 'order-2' : 'order-1'}`}>
         <div className={`px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
           isMoi
             ? 'bg-[#D4AF37] text-[#0A1628] font-medium rounded-br-sm'
@@ -140,6 +140,7 @@ export default function MessagesPage() {
   const [conversations, setConversations] = useState<Conversation[]>(MOCK_CONVERSATIONS)
   const [recherche, setRecherche] = useState('')
   const [saisie, setSaisie] = useState('')
+  const [vueMobile, setVueMobile] = useState<'liste' | 'conv'>('liste')
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   // Scroll en bas à chaque changement de conversation / message
@@ -156,6 +157,7 @@ export default function MessagesPage() {
     )
     setConversations(updated)
     setConvActive({ ...conv, nonLus: 0, messages: conv.messages.map(m => ({ ...m, lu: true })) })
+    setVueMobile('conv')
   }
 
   function envoyer() {
@@ -181,10 +183,10 @@ export default function MessagesPage() {
   const totalNonLus = conversations.reduce((s, c) => s + c.nonLus, 0)
 
   return (
-    <div className="flex h-[calc(100vh-8rem)] gap-0 rounded-2xl overflow-hidden border border-white/10">
+    <div className="flex h-[calc(100dvh-8rem)] gap-0 rounded-2xl overflow-hidden border border-white/10">
 
       {/* ── Sidebar conversations ── */}
-      <div className="w-80 flex-shrink-0 flex flex-col border-r border-white/10" style={{ backgroundColor: '#060E1A' }}>
+      <div className={`${vueMobile === 'conv' ? 'hidden' : 'flex'} md:flex w-full md:w-80 md:flex-shrink-0 flex-col border-r border-white/10`} style={{ backgroundColor: '#060E1A' }}>
         {/* Header sidebar */}
         <div className="p-4 border-b border-white/5">
           <div className="flex items-center justify-between mb-3">
@@ -198,6 +200,7 @@ export default function MessagesPage() {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
             <input
+              aria-label="Rechercher une conversation"
               value={recherche}
               onChange={e => setRecherche(e.target.value)}
               placeholder="Rechercher…"
@@ -245,14 +248,18 @@ export default function MessagesPage() {
       </div>
 
       {/* ── Zone conversation ── */}
-      <div className="flex-1 flex flex-col" style={{ backgroundColor: '#0A1628' }}>
+      <div className={`${vueMobile === 'liste' ? 'hidden' : 'flex'} md:flex flex-1 min-w-0 flex-col`} style={{ backgroundColor: '#0A1628' }}>
         {/* Header conversation */}
-        <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10"
+        <div className="flex items-center gap-3 px-4 md:px-6 py-4 border-b border-white/10"
           style={{ backgroundColor: 'rgba(6,14,26,0.8)', backdropFilter: 'blur(10px)' }}>
+          <button type="button" onClick={() => setVueMobile('liste')} aria-label="Retour aux conversations"
+            className="md:hidden w-11 h-11 -ml-2 flex items-center justify-center rounded-xl text-gray-300 hover:bg-white/5">
+            <ArrowLeft className="w-5 h-5" />
+          </button>
           <Avatar initiales={convActive.initiales} couleur={convActive.couleur} />
-          <div>
-            <div className="text-white font-bold">{convActive.nom}</div>
-            <div className="text-xs text-gray-400">{convActive.role}</div>
+          <div className="min-w-0">
+            <div className="text-white font-bold truncate">{convActive.nom}</div>
+            <div className="text-xs text-gray-400 truncate">{convActive.role}</div>
           </div>
           <div className="ml-auto flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -261,7 +268,7 @@ export default function MessagesPage() {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-6 py-4">
+        <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4" tabIndex={0} role="log" aria-label="Messages de la conversation">
           <AnimatePresence initial={false}>
             {convActive.messages.map(msg => (
               <Bulle key={msg.id} msg={msg} />
@@ -271,9 +278,10 @@ export default function MessagesPage() {
         </div>
 
         {/* Saisie */}
-        <div className="px-6 py-4 border-t border-white/10">
+        <div className="px-4 md:px-6 py-4 border-t border-white/10">
           <div className="flex items-center gap-3">
             <input
+              aria-label="Votre message"
               value={saisie}
               onChange={e => setSaisie(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); envoyer() } }}
@@ -281,6 +289,7 @@ export default function MessagesPage() {
               className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
             />
             <button
+              aria-label="Envoyer"
               onClick={envoyer}
               disabled={!saisie.trim()}
               className="w-11 h-11 rounded-xl flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"

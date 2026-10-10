@@ -55,7 +55,7 @@ export default function DashboardClient() {
     <div className="space-y-8">
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
         transition={{ type: 'spring' as const }}>
-        <h1 className="text-3xl font-black text-white mb-1">Tableau de bord</h1>
+        <h1 className="text-2xl sm:text-3xl font-black text-white mb-1">Tableau de bord</h1>
         <p className="text-gray-400">Vos performances du mois de juillet 2026</p>
       </motion.div>
 
@@ -73,7 +73,7 @@ export default function DashboardClient() {
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-green-400" />
                 </div>
-                <div className="text-2xl font-black text-white mb-1">{s.value}</div>
+                <div className="text-xl sm:text-2xl font-black text-white mb-1">{s.value}</div>
                 <div className="text-xs text-gray-400 mb-1">{s.label}</div>
                 <div className="text-xs" style={{ color: s.color }}>{s.sub}</div>
               </CardContent>
@@ -124,7 +124,7 @@ export default function DashboardClient() {
           <CardContent>
             <div className="space-y-4">
               {MOCK_OFFRES.map((offre) => (
-                <div key={offre.id} className="flex items-center justify-between p-4 rounded-xl border border-white/5 hover:border-[#D4AF37]/20 transition-all duration-200"
+                <div key={offre.id} className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 p-4 rounded-xl border border-white/5 hover:border-[#D4AF37]/20 transition-all duration-200"
                   style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -136,7 +136,7 @@ export default function DashboardClient() {
                       <div className="text-gray-400 text-xs mt-0.5">{offre.quantite} • {offre.origine}</div>
                     </div>
                   </div>
-                  <div className="hidden md:flex items-center gap-6 text-sm">
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
                     <div className="text-right">
                       <div className="text-white font-bold">{formatNombre(offre.prix)}</div>
                       <div className="text-gray-400 text-xs">FCFA/{offre.unite}</div>
@@ -174,7 +174,7 @@ export default function DashboardClient() {
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-green-400 opacity-60" />
                   </div>
-                  <div className="text-2xl font-black text-white mb-0.5">{s.value}</div>
+                  <div className="text-xl sm:text-2xl font-black text-white mb-0.5">{s.value}</div>
                   <div className="text-xs text-gray-400 mb-1">{s.label}</div>
                   <div className="text-xs font-medium" style={{ color: s.color }}>{s.sub}</div>
                 </CardContent>
