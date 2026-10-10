@@ -123,7 +123,7 @@ export default function RegisterPage() {
               <Globe2 className="w-5 h-5 text-[#0A1628]" />
             </div>
             <span className="text-2xl font-black text-white">
-              ValueChain<span style={{ color: '#D4AF37' }}>Connect</span>
+              Agro<span style={{ color: '#D4AF37' }}>Link</span>
             </span>
           </Link>
 

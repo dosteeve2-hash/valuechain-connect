@@ -53,7 +53,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)' }}>
               <Globe2 className="w-4 h-4 text-[#0A1628]" />
             </div>
-            <span className="font-bold text-white">ValueChain<span style={{ color: '#D4AF37' }}>Connect</span></span>
+            <span className="font-bold text-white">Agro<span style={{ color: '#D4AF37' }}>Link</span></span>
           </Link>
           <button ref={closeBtn} type="button" onClick={close} aria-label="Fermer le menu"
             className="lg:hidden w-11 h-11 -mr-2 flex items-center justify-center rounded-xl text-gray-300 hover:bg-white/5">

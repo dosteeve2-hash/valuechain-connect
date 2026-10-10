@@ -10,7 +10,7 @@ interface ErrorProps {
 
 export default function DashboardError({ error, reset }: ErrorProps) {
   useEffect(() => {
-    console.error('[ValueChain Connect] Dashboard error:', error);
+    console.error('[AgroLink] Dashboard error:', error);
   }, [error]);
 
   return (

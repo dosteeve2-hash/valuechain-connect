@@ -1,7 +1,7 @@
 {
-  "name": "ValueChain",
-  "short_name": "ValueChain",
-  "description": "Chaine de Valeur",
+  "name": "AgroLink",
+  "short_name": "AgroLink",
+  "description": "Marketplace B2B producteurs et transformateurs",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0C4A6E",

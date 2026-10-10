@@ -57,7 +57,7 @@ export default function ProfilPage() {
       >
         <div>
           <h1 className="text-3xl font-black text-white mb-1">Mon profil</h1>
-          <p className="text-gray-400">Gérez votre identité sur ValueChain Connect</p>
+          <p className="text-gray-400">Gérez votre identité sur AgroLink</p>
         </div>
         <Button
           variant="outline"

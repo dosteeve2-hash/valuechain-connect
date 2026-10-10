@@ -43,7 +43,7 @@ export default function HomePage() {
             <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)' }}>
               <Globe2 className="w-4 h-4 text-[#0A1628]" />
             </div>
-            <span className="font-bold text-lg text-white">ValueChain<span style={{ color: '#D4AF37' }}>Connect</span></span>
+            <span className="font-bold text-lg text-white">Agro<span style={{ color: '#D4AF37' }}>Link</span></span>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/catalogue">
@@ -178,7 +178,7 @@ export default function HomePage() {
             <div className="text-5xl mb-6">🌍</div>
             <h2 className="text-4xl font-black text-white mb-4">Rejoignez l&apos;écosystème FORGE Afrika</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-              ValueChain Connect est un prototype. Nous cherchons nos premiers producteurs et transformateurs pilotes en Afrique de l&apos;Ouest.
+              AgroLink est un prototype. Nous cherchons nos premiers producteurs et transformateurs pilotes en Afrique de l&apos;Ouest.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/dashboard">
@@ -198,7 +198,7 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer className="py-8 px-6 border-t border-white/5 text-center text-gray-500 text-sm">
-        <p>© 2026 ValueChain Connect — FORGE Afrika Ecosystem • Zone CEDEAO</p>
+        <p>© 2026 AgroLink — FORGE Afrika Ecosystem • Zone CEDEAO</p>
       </footer>
     </div>
   )
