@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 import {
-  TrendingUp, ShieldCheck, Globe2, ArrowRight,
+  Globe2, ArrowRight,
   Package, Users, BarChart3, Star, ChevronRight,
   Wheat, Droplets, Leaf, Beef, SproutIcon, CircleDot
 } from 'lucide-react'
@@ -13,47 +12,19 @@ import { Badge } from '@/components/ui/badge'
 import { hoverScale } from '@/lib/animations'
 
 const CATEGORIES = [
-  { name: 'Coton', emoji: '🌿', icon: Leaf, volume: '2.1M tonnes/an', color: 'from-emerald-900/40 to-emerald-800/20', border: 'border-emerald-700/30' },
-  { name: 'Sésame', emoji: '🌾', icon: Wheat, volume: '890K tonnes/an', color: 'from-yellow-900/40 to-yellow-800/20', border: 'border-yellow-700/30' },
-  { name: 'Karité', emoji: '🫧', icon: Droplets, volume: '180K tonnes/an', color: 'from-amber-900/40 to-amber-800/20', border: 'border-amber-700/30' },
-  { name: 'Maïs', emoji: '🌽', icon: SproutIcon, volume: '12M tonnes/an', color: 'from-orange-900/40 to-orange-800/20', border: 'border-orange-700/30' },
-  { name: 'Arachide', emoji: '🥜', icon: CircleDot, volume: '4.2M tonnes/an', color: 'from-red-900/40 to-red-800/20', border: 'border-red-700/30' },
-  { name: 'Bétail', emoji: '🐄', icon: Beef, volume: '320K têtes/an', color: 'from-purple-900/40 to-purple-800/20', border: 'border-purple-700/30' },
-]
-
-const STATS = [
-  { label: 'Offres actives', value: '47', suffix: '', icon: Package },
-  { label: 'Acheteurs vérifiés', value: '23', suffix: '', icon: ShieldCheck },
-  { label: 'Pays couverts', value: '15', suffix: '', icon: Globe2 },
-  { label: 'FCFA transactés', value: '2.4M', suffix: '', icon: TrendingUp },
+  { name: 'Coton', emoji: '🌿', icon: Leaf, color: 'from-emerald-900/40 to-emerald-800/20', border: 'border-emerald-700/30' },
+  { name: 'Sésame', emoji: '🌾', icon: Wheat, color: 'from-yellow-900/40 to-yellow-800/20', border: 'border-yellow-700/30' },
+  { name: 'Karité', emoji: '🫧', icon: Droplets, color: 'from-amber-900/40 to-amber-800/20', border: 'border-amber-700/30' },
+  { name: 'Maïs', emoji: '🌽', icon: SproutIcon, color: 'from-orange-900/40 to-orange-800/20', border: 'border-orange-700/30' },
+  { name: 'Arachide', emoji: '🥜', icon: CircleDot, color: 'from-red-900/40 to-red-800/20', border: 'border-red-700/30' },
+  { name: 'Bétail', emoji: '🐄', icon: Beef, color: 'from-purple-900/40 to-purple-800/20', border: 'border-purple-700/30' },
 ]
 
 const STEPS = [
   { step: '01', title: 'Lister votre production', desc: 'Créez votre offre en quelques minutes. Qualité, quantité, certification, conditions de livraison.', icon: Package, color: '#D4AF37' },
   { step: '02', title: 'Trouver des partenaires', desc: 'Parcourez le catalogue et filtrez par catégorie, pays, certification. Demandez un devis.', icon: Users, color: '#00BCD4' },
-  { step: '03', title: 'Transacter en sécurité', desc: 'Négociez, validez et finalisez vos transactions B2B dans un environnement sécurisé.', icon: BarChart3, color: '#D4AF37' },
+  { step: '03', title: 'Négocier directement', desc: 'Discutez des conditions entre vous. Le paiement et la transaction en ligne ne sont pas encore proposés.', icon: BarChart3, color: '#D4AF37' },
 ]
-
-function CountUp({ end, duration = 2000 }: { end: string; duration?: number }) {
-  const [display, setDisplay] = useState('0')
-  useEffect(() => {
-    const num = parseFloat(end.replace('M', ''))
-    const isM = end.includes('M')
-    const steps = 60
-    const inc = num / steps
-    let current = 0
-    let step = 0
-    const timer = setInterval(() => {
-      step++
-      current = Math.min(current + inc, num)
-      if (isM) setDisplay(current.toFixed(1) + 'M')
-      else setDisplay(Math.round(current).toString())
-      if (step >= steps) clearInterval(timer)
-    }, duration / steps)
-    return () => clearInterval(timer)
-  }, [end, duration])
-  return <>{display}</>
-}
 
 export default function HomePage() {
   return (
@@ -87,7 +58,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto text-center relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring' as const, duration: 0.6 }}>
             <Badge className="mb-6 px-4 py-1.5 text-sm border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">
-              🌍 Zone CEDEAO — 15 pays
+              🌍 Pensé pour la zone CEDEAO
             </Badge>
           </motion.div>
           <motion.h1
@@ -105,7 +76,7 @@ export default function HomePage() {
             transition={{ type: 'spring' as const, duration: 0.7, delay: 0.2 }}
             className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
           >
-            La marketplace B2B de référence pour connecter producteurs, coopératives et transformateurs à travers les 15 pays de la CEDEAO.
+            Un projet de marketplace B2B pour aider producteurs, coopératives et transformateurs de la zone CEDEAO à se trouver sans intermédiaire.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -126,20 +97,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-16 px-6 border-y border-white/5" style={{ background: 'rgba(15,32,64,0.5)' }}>
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {STATS.map((stat, i) => (
-            <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ type: 'spring' as const, delay: i * 0.1 }} className="text-center">
-              <stat.icon className="w-6 h-6 mx-auto mb-2" style={{ color: '#D4AF37' }} />
-              <div className="text-4xl font-black text-white">
-                <CountUp end={stat.value} />
-              </div>
-              <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
+      {/* STATUT */}
+      <section className="py-6 px-6 border-y border-white/5" style={{ background: 'rgba(15,32,64,0.5)' }}>
+        <p className="max-w-3xl mx-auto text-center text-sm text-gray-300">
+          Prototype en construction. Le catalogue affiche des données de démonstration : il n&apos;y a pas encore d&apos;offres, d&apos;acheteurs ni de transactions réels.
+        </p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -174,8 +136,8 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ type: 'spring' as const }} className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">Catégories disponibles</h2>
-            <p className="text-gray-400 text-lg">Les principales commodités agricoles de la zone CEDEAO</p>
+            <h2 className="text-4xl font-black text-white mb-4">Filières visées</h2>
+            <p className="text-gray-400 text-lg">Les principales productions agricoles de la zone, pour lesquelles le catalogue est prévu</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {CATEGORIES.map((cat, i) => (
@@ -185,7 +147,6 @@ export default function HomePage() {
                 className={`p-6 rounded-2xl bg-gradient-to-br ${cat.color} border ${cat.border} cursor-pointer`}>
                 <div className="text-4xl mb-3">{cat.emoji}</div>
                 <h3 className="text-lg font-bold text-white mb-1">{cat.name}</h3>
-                <p className="text-sm text-gray-400">{cat.volume}</p>
               </motion.div>
             ))}
           </div>
@@ -200,14 +161,14 @@ export default function HomePage() {
             className="p-12 rounded-3xl border border-[#D4AF37]/20"
             style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(0,188,212,0.08))' }}>
             <div className="text-5xl mb-6">🌍</div>
-            <h2 className="text-4xl font-black text-white mb-4">Rejoignez l&apos;écosystème FORGE Afrika</h2>
+            <h2 className="text-4xl font-black text-white mb-4">Aidez-nous à construire ValueChain Connect</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-              ValueChain Connect est la clé de voûte du commerce agricole B2B en Afrique de l&apos;Ouest. Rejoignez des centaines de producteurs et transformateurs.
+              ValueChain Connect est un prototype en construction. Dites-nous ce dont vous avez besoin pour acheter ou vendre sans intermédiaire.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/dashboard">
                 <Button size="xl" className="bg-[#D4AF37] text-[#0A1628] hover:bg-[#E8C84A] font-bold gap-2">
-                  Démarrer maintenant <ArrowRight className="w-5 h-5" />
+                  Essayer le prototype <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
               <Link href="/catalogue">
