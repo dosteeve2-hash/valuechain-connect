@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import ExampleDataBanner from '@/components/ExampleDataBanner'
 import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, ScrollText, MessageSquare, Boxes, Truck, Users2, Menu, X } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -102,7 +103,10 @@ export default function DashboardShell({ children }: { children: React.ReactNode
             <span className="text-xs text-gray-400">En ligne</span>
           </div>
         </header>
-        <div className="p-4 sm:p-6 lg:p-8">{children}</div>
+        <div className="p-4 sm:p-6 lg:p-8">
+          <ExampleDataBanner />
+          {children}
+        </div>
       </main>
     </div>
   )

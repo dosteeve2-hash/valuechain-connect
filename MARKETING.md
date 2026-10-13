@@ -79,13 +79,9 @@ L'Afrique de l'Ouest est votre marché.
 
 ---
 
-## Témoignages
+## Pilotes recherchés
 
-> *"J'ai vendu 40 tonnes de sésame à un acheteur sénégalais. Jamais j'aurais eu ce contact sans AgroLink."*
-> — Coopérative producteurs, Région Centre-Ouest, Burkina Faso
-
-> *"En tant que transformateur, je sécurise maintenant mes approvisionnements 6 mois à l'avance."*
-> — Directeur commercial, huilerie, Abidjan
+Aucun témoignage pour l'instant : le produit est en phase pilote et nous cherchons nos premiers utilisateurs. Contactez-nous pour l'essayer et nous dire ce qui manque.
 
 ---
 
