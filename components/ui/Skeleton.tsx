@@ -42,7 +42,7 @@ export function SkeletonTableRow() {
   );
 }
 
-/** Skeleton grille offres producteurs ValueChain */
+/** Skeleton grille offres producteurs AgroLink */
 export function SkeletonOffreCard({ className }: SkeletonProps) {
   return (
     <div

@@ -1,8 +1,8 @@
-# PRD — ValueChain Connect
+# PRD — AgroLink
 
 ## Vision
 
-ValueChain Connect est la clé de voûte de l'écosystème FORGE Afrika. C'est la marketplace B2B qui élimine les intermédiaires entre producteurs agricoles et transformateurs industriels en Afrique de l'Ouest (zone CEDEAO). Chaque produit FORGE Afrika génère des données qui alimentent ValueChain Connect — c'est là que la valeur se monétise.
+AgroLink est la clé de voûte de l'écosystème FORGE Afrika. C'est la marketplace B2B qui élimine les intermédiaires entre producteurs agricoles et transformateurs industriels en Afrique de l'Ouest (zone CEDEAO). Chaque produit FORGE Afrika génère des données qui alimentent AgroLink — c'est là que la valeur se monétise.
 
 ## Utilisateurs cibles
 

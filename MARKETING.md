@@ -1,4 +1,4 @@
-# ValueChain Connect — Le Marketplace B2B qui Connecte l'Afrique de l'Ouest
+# AgroLink — Le Marketplace B2B qui Connecte l'Afrique de l'Ouest
 
 ## 🌐 "Votre production mérite les meilleurs acheteurs. On vous les trouve."
 
@@ -15,13 +15,13 @@ De l'autre côté, les transformateurs, exportateurs et acheteurs industriels
 cherchent des fournisseurs fiables — mais n'ont aucune visibilité sur
 qui produit quoi, en quelle quantité, avec quelle qualité.
 
-**ValueChain Connect ferme ce fossé.**
+**AgroLink ferme ce fossé.**
 
 ---
 
-## ValueChain Connect : Le Pont Entre Producteurs et Marchés
+## AgroLink : Le Pont Entre Producteurs et Marchés
 
-ValueChain Connect est la **marketplace B2B panafricaine** qui connecte
+AgroLink est la **marketplace B2B panafricaine** qui connecte
 producteurs agricoles, transformateurs et acheteurs commerciaux
 dans l'espace CEDEAO.
 
@@ -33,7 +33,7 @@ Une plateforme transparente où l'offre rencontre la demande — directement.
 
 ---
 
-## Ce Que Vous Gagnez avec ValueChain Connect
+## Ce Que Vous Gagnez avec AgroLink
 
 ### 🏪 Votre Vitrine Commerciale Permanente
 Créez le profil de votre production : cultures, volumes, qualité, certifications.
@@ -79,13 +79,9 @@ L'Afrique de l'Ouest est votre marché.
 
 ---
 
-## Témoignages
+## Pilotes recherchés
 
-> *"J'ai vendu 40 tonnes de sésame à un acheteur sénégalais. Jamais j'aurais eu ce contact sans ValueChain."*
-> — Coopérative producteurs, Région Centre-Ouest, Burkina Faso
-
-> *"En tant que transformateur, je sécurise maintenant mes approvisionnements 6 mois à l'avance."*
-> — Directeur commercial, huilerie, Abidjan
+Aucun témoignage pour l'instant : le produit est en phase pilote et nous cherchons nos premiers utilisateurs. Contactez-nous pour l'essayer et nous dire ce qui manque.
 
 ---
 
@@ -105,4 +101,4 @@ Inscription gratuite. Vérification rapide. Accès immédiat au réseau.
 
 **🌐 [valuechain-connect.vercel.app](https://valuechain-connect.vercel.app)**
 
-*ValueChain Connect by FORGE Afrika — La CEDEAO, un seul marché.*
+*AgroLink by FORGE Afrika — La CEDEAO, un seul marché.*

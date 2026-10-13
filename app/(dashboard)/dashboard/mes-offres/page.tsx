@@ -92,14 +92,14 @@ function ModalForm({ offre, onClose, onSave }: ModalFormProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: 'spring' as const }}
-        className="relative w-full max-w-lg rounded-2xl border border-white/10 p-6"
+        className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 p-4 sm:p-6"
         style={{ backgroundColor: '#0F2040', zIndex: 51 }}
       >
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-bold text-white">
             {offre ? 'Modifier l\'offre' : 'Nouvelle offre'}
           </h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
+          <button onClick={onClose} aria-label="Fermer" className="w-11 h-11 -mr-2 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -221,10 +221,10 @@ export default function MesOffresPage() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring' as const }}
-          className="flex items-center justify-between"
+          className="flex flex-wrap items-center justify-between gap-4"
         >
           <div>
-            <h1 className="text-3xl font-black text-white mb-1">Mes offres</h1>
+            <h1 className="text-2xl sm:text-3xl font-black text-white mb-1">Mes offres</h1>
             <p className="text-gray-400">Gérez vos offres de vente sur la marketplace</p>
           </div>
           <Button onClick={openNew}
@@ -234,7 +234,7 @@ export default function MesOffresPage() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             { label: 'Offres actives', value: nbActives.toString(), icon: Package, color: '#D4AF37' },
             { label: 'Vues totales', value: formatNombre(totalVues), icon: Eye, color: '#00BCD4' },
@@ -283,7 +283,7 @@ export default function MesOffresPage() {
                   offre.statut === 'Inactif' ? 'opacity-60' : 'hover:border-[#D4AF37]/20'
                 }`}>
                   <CardContent className="pt-5">
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                       <div className="flex items-start gap-3 flex-1 min-w-0">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                           style={{
@@ -303,7 +303,7 @@ export default function MesOffresPage() {
                           <p className="text-gray-400 text-sm leading-relaxed mb-3 line-clamp-2">
                             {offre.description}
                           </p>
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-gray-400">
                             <div className="flex items-center gap-1">
                               <Tag className="w-3 h-3" />
                               {offre.quantite} · {formatNombre(offre.prix)} FCFA/{offre.unite}
@@ -326,14 +326,14 @@ export default function MesOffresPage() {
 
                       {/* Actions */}
                       <div className="flex items-center gap-2 flex-shrink-0">
-                        <Button size="sm" variant="ghost"
+                        <Button size="sm" variant="ghost" aria-label={`Modifier ${offre.produit}`}
                           onClick={() => openEdit(offre)}
-                          className="h-8 px-3 text-gray-400 hover:text-white hover:bg-white/5">
+                          className="h-11 w-11 sm:h-8 sm:w-auto px-3 text-gray-400 hover:text-white hover:bg-white/5">
                           <Edit3 className="w-3.5 h-3.5" />
                         </Button>
-                        <Button size="sm" variant="ghost"
+                        <Button size="sm" variant="ghost" aria-label={`${offre.statut === 'Actif' ? 'Désactiver' : 'Activer'} ${offre.produit}`}
                           onClick={() => toggleStatut(offre.id)}
-                          className={`h-8 px-3 transition-colors ${
+                          className={`h-11 w-11 sm:h-8 sm:w-auto px-3 transition-colors ${
                             offre.statut === 'Actif'
                               ? 'text-red-400 hover:text-red-300 hover:bg-red-500/10'
                               : 'text-green-400 hover:text-green-300 hover:bg-green-500/10'
