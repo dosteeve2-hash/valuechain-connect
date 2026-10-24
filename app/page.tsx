@@ -10,7 +10,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { hoverScale } from '@/lib/animations'
-import ProjectVideo from '@/components/ProjectVideo'
 
 const CATEGORIES = [
   { name: 'Coton', emoji: '🌿', icon: Leaf, volume: '2.1M tonnes/an', color: 'from-emerald-900/40 to-emerald-800/20', border: 'border-emerald-700/30' },
@@ -102,15 +101,11 @@ export default function HomePage() {
               </Button>
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* VIDEO */}
-      <section className="pb-16 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">ValueChain Connect en vidéo</h2>
-          <ProjectVideo slug="valuechain" lang="fr" title="Vidéo de présentation de ValueChain Connect" />
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring' as const, duration: 0.7, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+          >
             <Link href="/catalogue">
               <Button size="lg" className="bg-[#D4AF37] text-[#0A1628] hover:bg-[#E8C84A] font-bold gap-2">
                 Voir le catalogue d&apos;exemple <ArrowRight className="w-4 h-4" />
@@ -119,7 +114,7 @@ export default function HomePage() {
             <a href="mailto:docompaore2@gmail.com?subject=ValueChain%20Connect%20%E2%80%94%20Pilote">
               <Button size="lg" variant="outline" className="font-bold">Devenir pilote</Button>
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
 
