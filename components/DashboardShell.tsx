@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import ExampleDataBanner from '@/components/ExampleDataBanner'
-import { Globe2, LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, ScrollText, MessageSquare, Boxes, Truck, Users2, Menu, X } from 'lucide-react'
+import { LayoutDashboard, ShoppingBag, FileText, Package, User, ClipboardList, ScrollText, MessageSquare, Boxes, Truck, Users2, Menu, X } from 'lucide-react'
 
 const NAV_ITEMS = [
   { href: '/dashboard',                 label: 'Tableau de bord', icon: LayoutDashboard },
@@ -49,12 +50,8 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         className={`fixed inset-y-0 left-0 z-40 w-64 max-w-[85vw] flex flex-col border-r border-white/5 transition-transform duration-200 lg:static lg:z-auto lg:max-w-none lg:flex-shrink-0 lg:translate-x-0 lg:visible ${open ? 'translate-x-0' : '-translate-x-full invisible'}`}
         style={{ backgroundColor: '#060E1A' }}>
         <div className="p-4 lg:p-6 border-b border-white/5 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 min-h-11">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)' }}>
-              <Globe2 className="w-4 h-4 text-[#0A1628]" />
-            </div>
-            <span className="font-bold text-white">Agro<span style={{ color: '#D4AF37' }}>Link</span></span>
+          <Link href="/" className="flex min-h-11 items-center">
+            <Image src="/brand/logo-sombre.svg" alt="ValueChain Connect" width={395} height={88} className="h-9 w-auto" />
           </Link>
           <button ref={closeBtn} type="button" onClick={close} aria-label="Fermer le menu"
             className="lg:hidden w-11 h-11 -mr-2 flex items-center justify-center rounded-xl text-gray-300 hover:bg-white/5">

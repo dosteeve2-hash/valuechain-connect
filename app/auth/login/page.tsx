@@ -4,7 +4,8 @@ import { Suspense, useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Globe2, Eye, EyeOff, Loader2, AlertCircle } from 'lucide-react'
+import Image from 'next/image'
+import { Eye, EyeOff, Loader2, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { createClient } from '@/lib/supabase/client'
@@ -104,13 +105,7 @@ function LoginContent() {
       >
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)' }}>
-              <Globe2 className="w-5 h-5 text-[#0A1628]" />
-            </div>
-            <span className="text-2xl font-black text-white">
-              Agro<span style={{ color: '#D4AF37' }}>Link</span>
-            </span>
+            <Image src="/brand/logo-sombre.svg" alt="ValueChain Connect" width={395} height={88} className="h-11 w-auto" />
           </Link>
           <h1 className="text-xl font-bold text-white mt-2">Bon retour 👋</h1>
           <p className="text-gray-400 text-sm mt-1">Connectez-vous à votre espace B2B</p>

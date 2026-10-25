@@ -1,29 +1,18 @@
 {
-  "name": "AgroLink",
-  "short_name": "AgroLink",
-  "description": "Marketplace B2B producteurs et transformateurs",
+  "name": "ValueChain Connect",
+  "short_name": "ValueChain",
+  "description": "Projet de place de marché B2B en conception",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0C4A6E",
-  "theme_color": "#0C4A6E",
+  "background_color": "#FBFAF5",
+  "theme_color": "#1B4D3E",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
+      "src": "/brand/mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }

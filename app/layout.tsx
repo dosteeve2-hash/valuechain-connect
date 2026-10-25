@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Sora } from 'next/font/google'
 import './globals.css'
-import ScrollToTop from '@/components/ScrollToTop'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const sora = Sora({ subsets: ['latin'], variable: '--font-sora' })
 
 export const metadata: Metadata = {
-  title: 'AgroLink — Marketplace B2B CEDEAO',
-  description: "Connectez votre production aux marchés de la CEDEAO. Marketplace B2B pour producteurs et transformateurs en Afrique de l'Ouest.",
-  keywords: ['marketplace', 'CEDEAO', 'B2B', 'agriculture', "Afrique de l'Ouest", 'coton', 'sésame', 'karité'],
+  title: 'ValueChain Connect',
+  description: 'Projet de place de marché B2B en conception pour rapprocher producteurs et transformateurs.',
+  keywords: ['marketplace', 'B2B', 'agriculture', 'coton', 'sésame', 'karité', 'maïs'],
   icons: {
-    apple: '/apple-touch-icon.png',
-    icon: '/android-chrome-192x192.png',
+    apple: '/brand/mark.svg',
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
   },
   manifest: '/site.webmanifest',
 }
@@ -19,9 +20,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className="dark">
-      <body className={inter.className} style={{ backgroundColor: '#0A1628' }}>
+      <body className={`${inter.className} ${sora.variable}`} style={{ backgroundColor: '#0A1628' }}>
         {children}
-        <ScrollToTop />
       </body>
     </html>
   )
