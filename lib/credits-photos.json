@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "industrie-coton",
+    "fichier": "/images/photos/industrie-coton.webp",
+    "width": 1600,
+    "height": 1200,
+    "titre": "Le coton voyage.jpg",
+    "auteur": "MALARD Christine",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
+    "source": "https://commons.wikimedia.org/wiki/File:Le_coton_voyage.jpg",
+    "modifications": "Redimensionnée et convertie en WebP. Le fichier modifié reste sous la même licence."
+  },
+  {
+    "slug": "industrie-cereales",
+    "fichier": "/images/photos/industrie-cereales.webp",
+    "width": 1600,
+    "height": 808,
+    "titre": "Cleaning the cereal.jpg",
+    "auteur": "PGskot",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.fr",
+    "source": "https://commons.wikimedia.org/wiki/File:Cleaning_the_cereal.jpg",
+    "modifications": "Redimensionnée et convertie en WebP. Le fichier modifié reste sous la même licence."
+  }
+]

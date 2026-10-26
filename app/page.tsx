@@ -1,219 +1,177 @@
-'use client'
-
-import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
-import {
-  FlaskConical, Database, Globe2, ArrowRight, Handshake,
-  Package, Users, BarChart3, Star, ChevronRight,
-  Wheat, Droplets, Leaf, Beef, SproutIcon, CircleDot
-} from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { hoverScale } from '@/lib/animations'
+import CataloguePreview from '@/components/public-site/CataloguePreview'
+import LotFlow from '@/components/public-site/LotFlow'
+import PrimaryLink from '@/components/public-site/PrimaryLink'
+import PublicSite from '@/components/public-site/PublicSite'
+import Reveal from '@/components/public-site/Reveal'
 
-const CATEGORIES = [
-  { name: 'Coton', emoji: '🌿', icon: Leaf, volume: '2.1M tonnes/an', color: 'from-emerald-900/40 to-emerald-800/20', border: 'border-emerald-700/30' },
-  { name: 'Sésame', emoji: '🌾', icon: Wheat, volume: '890K tonnes/an', color: 'from-yellow-900/40 to-yellow-800/20', border: 'border-yellow-700/30' },
-  { name: 'Karité', emoji: '🫧', icon: Droplets, volume: '180K tonnes/an', color: 'from-amber-900/40 to-amber-800/20', border: 'border-amber-700/30' },
-  { name: 'Maïs', emoji: '🌽', icon: SproutIcon, volume: '12M tonnes/an', color: 'from-orange-900/40 to-orange-800/20', border: 'border-orange-700/30' },
-  { name: 'Arachide', emoji: '🥜', icon: CircleDot, volume: '4.2M tonnes/an', color: 'from-red-900/40 to-red-800/20', border: 'border-red-700/30' },
-  { name: 'Bétail', emoji: '🐄', icon: Beef, volume: '320K têtes/an', color: 'from-purple-900/40 to-purple-800/20', border: 'border-purple-700/30' },
-]
+export const metadata: Metadata = {
+  title: 'ValueChain Connect | Du producteur au transformateur',
+  description:
+    'ValueChain Connect est un projet de place de marché B2B en conception pour rapprocher producteurs et transformateurs. Le prototype présente des données de démonstration.',
+}
 
-const STATUT = [
-  { label: 'Stade du projet', value: 'Prototype', icon: FlaskConical },
-  { label: 'Catalogue et tableaux de bord', value: 'Démo', icon: Database },
-  { label: 'Zone visée', value: 'CEDEAO', icon: Globe2 },
-  { label: 'Producteurs et transformateurs', value: 'Pilotes recherchés', icon: Handshake },
-]
-
-const STEPS = [
-  { step: '01', title: 'Lister votre production', desc: 'Créez votre offre en quelques minutes. Qualité, quantité, certification, conditions de livraison.', icon: Package, color: '#D4AF37' },
-  { step: '02', title: 'Trouver des partenaires', desc: 'Parcourez le catalogue et filtrez par catégorie, pays, certification. Demandez un devis.', icon: Users, color: '#00BCD4' },
-  { step: '03', title: 'Transacter en sécurité', desc: 'Négociez, validez et finalisez vos transactions B2B dans un environnement sécurisé.', icon: BarChart3, color: '#D4AF37' },
-]
+const materials = ['Coton', 'Sésame', 'Karité', 'Maïs']
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0A1628' }}>
-      {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style={{ backgroundColor: 'rgba(10,22,40,0.95)', backdropFilter: 'blur(20px)' }}>
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #D4AF37, #E8C84A)' }}>
-              <Globe2 className="w-4 h-4 text-[#0A1628]" />
-            </div>
-            <span className="font-bold text-lg text-white">Agro<span style={{ color: '#D4AF37' }}>Link</span></span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Link href="/catalogue">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white">Catalogue</Button>
-            </Link>
-            <Link href="/dashboard">
-              <Button size="sm" className="bg-[#D4AF37] text-[#0A1628] hover:bg-[#E8C84A] font-semibold">Accéder</Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* HERO */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{ background: '#D4AF37' }} />
-          <div className="absolute bottom-20 right-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{ background: '#00BCD4' }} />
-        </div>
-        <div className="max-w-5xl mx-auto text-center relative">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring' as const, duration: 0.6 }}>
-            <Badge className="mb-6 px-4 py-1.5 text-sm border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">
-              🌍 Afrique de l&apos;Ouest
-            </Badge>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring' as const, duration: 0.7, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight"
-          >
-            Connectez votre production<br />
-            <span style={{ background: 'linear-gradient(135deg, #D4AF37, #00BCD4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              aux marchés de la CEDEAO
-            </span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring' as const, duration: 0.7, delay: 0.2 }}
-            className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
-          >
-            Marketplace B2B en préparation pour connecter producteurs, coopératives et transformateurs de la zone CEDEAO. Prototype : les offres affichées sont des données de démonstration.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring' as const, duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link href="/dashboard">
-              <Button size="xl" className="bg-[#D4AF37] text-[#0A1628] hover:bg-[#E8C84A] font-bold shadow-lg gap-2 glow-gold">
-                Je suis Producteur <ArrowRight className="w-5 h-5" />
-              </Button>
-            </Link>
-            <Link href="/catalogue">
-              <Button size="xl" variant="cyan" className="font-bold gap-2 glow-cyan">
-                Je suis Transformateur <ChevronRight className="w-5 h-5" />
-              </Button>
-            </Link>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring' as const, duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
-          >
-            <Link href="/catalogue">
-              <Button size="lg" className="bg-[#D4AF37] text-[#0A1628] hover:bg-[#E8C84A] font-bold gap-2">
-                Voir le catalogue d&apos;exemple <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
-            <a href="mailto:docompaore2@gmail.com?subject=ValueChain%20Connect%20%E2%80%94%20Pilote">
-              <Button size="lg" variant="outline" className="font-bold">Devenir pilote</Button>
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* STATUT */}
-      <section className="py-16 px-6 border-y border-white/5" style={{ background: 'rgba(15,32,64,0.5)' }}>
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {STATUT.map((stat, i) => (
-            <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ type: 'spring' as const, delay: i * 0.1 }} className="text-center">
-              <stat.icon className="w-6 h-6 mx-auto mb-2" style={{ color: '#D4AF37' }} />
-              <div className="text-2xl font-black text-white">{stat.value}</div>
-              <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ type: 'spring' as const }} className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">Comment ça marche</h2>
-            <p className="text-gray-400 text-lg">3 étapes pour démarrer vos échanges commerciaux</p>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {STEPS.map((s, i) => (
-              <motion.div key={s.step} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ type: 'spring' as const, delay: i * 0.15 }}
-                {...hoverScale}
-                className="relative p-8 rounded-2xl border border-white/10 bg-navy-card hover:border-[#D4AF37]/30 transition-colors cursor-default">
-                <div className="text-6xl font-black opacity-10 text-white absolute top-4 right-6">{s.step}</div>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: `${s.color}20`, border: `1px solid ${s.color}40` }}>
-                  <s.icon className="w-6 h-6" style={{ color: s.color }} />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CATEGORIES */}
-      <section className="py-24 px-6" style={{ background: 'rgba(15,32,64,0.3)' }}>
-        <div className="max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ type: 'spring' as const }} className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">Catégories disponibles</h2>
-            <p className="text-gray-400 text-lg">Les principales commodités agricoles de la zone CEDEAO</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {CATEGORIES.map((cat, i) => (
-              <motion.div key={cat.name} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }} transition={{ type: 'spring' as const, delay: i * 0.1 }}
-                whileHover={{ y: -4, transition: { type: 'spring' as const, stiffness: 300 } }}
-                className={`p-6 rounded-2xl bg-gradient-to-br ${cat.color} border ${cat.border} cursor-pointer`}>
-                <div className="text-4xl mb-3">{cat.emoji}</div>
-                <h3 className="text-lg font-bold text-white mb-1">{cat.name}</h3>
-                <p className="text-sm text-gray-400">{cat.volume}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA FINAL */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ type: 'spring' as const }}
-            className="p-12 rounded-3xl border border-[#D4AF37]/20"
-            style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(0,188,212,0.08))' }}>
-            <div className="text-5xl mb-6">🌍</div>
-            <h2 className="text-4xl font-black text-white mb-4">Rejoignez l&apos;écosystème FORGE Afrika</h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-              AgroLink est un prototype. Nous cherchons nos premiers producteurs et transformateurs pilotes en Afrique de l&apos;Ouest.
+    <PublicSite>
+      <main id="contenu">
+        <section className="vc-hero vc-container" aria-labelledby="vc-home-title">
+          <Reveal className="vc-hero-copy">
+            <p className="vc-eyebrow"><span /> Marché agricole B2B · en conception</p>
+            <h1 id="vc-home-title" className="vc-display vc-hero-title">
+              Vendez directement à <span>celui qui transforme.</span>
+            </h1>
+            <p className="vc-hero-lede">
+              Un projet de place de marché pour rapprocher producteurs, coopératives et
+              transformateurs autour des matières premières. Le prototype présente des données
+              de démonstration, sans transaction réelle.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/dashboard">
-                <Button size="xl" className="bg-[#D4AF37] text-[#0A1628] hover:bg-[#E8C84A] font-bold gap-2">
-                  Démarrer maintenant <ArrowRight className="w-5 h-5" />
-                </Button>
-              </Link>
-              <Link href="/catalogue">
-                <Button size="xl" variant="outline" className="border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#D4AF37]/10 font-semibold gap-2">
-                  <Star className="w-5 h-5" /> Voir le catalogue
-                </Button>
-              </Link>
+            <div className="vc-hero-actions">
+              <PrimaryLink />
             </div>
-          </motion.div>
-        </div>
-      </section>
+            <p className="vc-hero-note">Écrivez-nous pour manifester votre intérêt pour le pilote.</p>
+          </Reveal>
 
-      {/* FOOTER */}
-      <footer className="py-8 px-6 border-t border-white/5 text-center text-gray-500 text-sm">
-        <p>© 2026 AgroLink — FORGE Afrika Ecosystem • Zone CEDEAO</p>
-      </footer>
-    </div>
+          <Reveal className="vc-hero-visual" delay={0.12}>
+            <figure className="vc-hero-photo">
+              <Image
+                src="/images/photos/industrie-coton.webp"
+                alt="Balles de coton près d’un camion de transport."
+                width={1600}
+                height={1200}
+                priority
+                quality={75}
+                sizes="(min-width: 1024px) 49vw, 100vw"
+              />
+              <figcaption className="vc-photo-caption">
+                <span className="vc-photo-mark">
+                  <Image src="/brand/mark.svg" alt="" width={44} height={44} />
+                </span>
+                <span>
+                  <strong>ValueChain Connect</strong>
+                  <small>Du champ à la transformation</small>
+                </span>
+              </figcaption>
+              <span className="vc-photo-index" aria-hidden="true">01 / matière</span>
+            </figure>
+          </Reveal>
+        </section>
+
+        <section className="vc-material-band" aria-label="Matières premières citées dans le projet">
+          <div className="vc-container vc-material-inner">
+            <span className="vc-material-label">Matières du périmètre</span>
+            <ul>
+              {materials.map((material) => <li key={material}>{material}</li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section className="vc-split-section" aria-labelledby="vc-split-title">
+          <div className="vc-container vc-split-layout">
+            <Reveal className="vc-split-copy">
+              <p className="vc-eyebrow vc-eyebrow-light"><span /> Le geste de la marque</p>
+              <h2 id="vc-split-title" className="vc-display vc-section-title">
+                Un lot peut trouver plusieurs débouchés.
+              </h2>
+              <p>
+                Le symbole ValueChain Connect raconte ce mouvement : une matière première part
+                d’un producteur et se distribue vers des acteurs de transformation.
+              </p>
+              <p className="vc-soft-note">
+                Le schéma est un exemple pédagogique. Il ne représente ni vendeur, ni acheteur,
+                ni transaction réelle.
+              </p>
+            </Reveal>
+            <Reveal className="vc-split-visual" delay={0.1}>
+              <LotFlow />
+            </Reveal>
+          </div>
+        </section>
+
+        <section id="catalogue" className="vc-catalogue-section" aria-labelledby="vc-catalogue-title">
+          <div className="vc-container">
+            <Reveal className="vc-section-heading vc-catalogue-heading">
+              <p className="vc-eyebrow"><span /> Recherche · aperçu interactif</p>
+              <h2 id="vc-catalogue-title" className="vc-display vc-section-title">
+                Trouver le bon lot commence par les bons filtres.
+              </h2>
+              <p>
+                Cette scène met en mouvement trois critères de recherche. Les cartes sont
+                illustratives et ne correspondent à aucune offre disponible.
+              </p>
+            </Reveal>
+            <CataloguePreview />
+          </div>
+        </section>
+
+        <section className="vc-prototype-section" aria-labelledby="vc-prototype-title">
+          <div className="vc-container vc-prototype-grid">
+            <Reveal className="vc-prototype-image-wrap">
+              <figure className="vc-prototype-image">
+                <Image
+                  src="/images/photos/industrie-cereales.webp"
+                  alt="Des personnes manipulent des céréales dans une cour de travail."
+                  width={1600}
+                  height={808}
+                  quality={75}
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                />
+                <figcaption>Photo d’illustration · céréales</figcaption>
+              </figure>
+            </Reveal>
+            <Reveal className="vc-prototype-copy" delay={0.1}>
+              <p className="vc-eyebrow"><span /> Ce que montre le code</p>
+              <h2 id="vc-prototype-title" className="vc-display vc-section-title">
+                Une interface en aperçu, pas encore un marché actif.
+              </h2>
+              <p className="vc-prototype-intro">
+                Le projet est en conception. Les parcours existants servent à illustrer le
+                fonctionnement envisagé avec des données fictives.
+              </p>
+              <ul className="vc-feature-list">
+                <li>
+                  <span className="vc-feature-index">01</span>
+                  <span><strong>Catalogue</strong><small>Des offres de démonstration pour visualiser les fiches de matières premières.</small></span>
+                </li>
+                <li>
+                  <span className="vc-feature-index">02</span>
+                  <span><strong>Recherche</strong><small>Recherche produit ou vendeur, catégorie, disponibilité et fourchette de prix.</small></span>
+                </li>
+                <li>
+                  <span className="vc-feature-index">03</span>
+                  <span><strong>Mise en relation</strong><small>Écrans de matching et formulaire de proposition en mode démonstration.</small></span>
+                </li>
+              </ul>
+              <p className="vc-disclaimer">
+                Les profils, prix et offres présents dans l’application sont des données de
+                démonstration. Aucune transaction commerciale n’est proposée sur ce site.
+              </p>
+              <Link className="vc-text-link" href="/le-projet">Voir le périmètre du projet <span aria-hidden="true">↗</span></Link>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="vc-pilot-section" aria-labelledby="vc-pilot-title">
+          <Reveal className="vc-container vc-pilot-inner">
+            <div className="vc-pilot-mark" aria-hidden="true">
+              <Image src="/brand/mark.svg" alt="" width={64} height={64} />
+            </div>
+            <p className="vc-eyebrow vc-eyebrow-light"><span /> Une idée à construire ensemble</p>
+            <h2 id="vc-pilot-title" className="vc-display vc-pilot-title">
+              Du producteur au transformateur, sans intermédiaire de trop.
+            </h2>
+            <p>
+              Producteurs, coopératives et transformateurs peuvent nous écrire pour échanger sur
+              le périmètre du pilote.
+            </p>
+            <PrimaryLink />
+          </Reveal>
+        </section>
+      </main>
+    </PublicSite>
   )
 }
