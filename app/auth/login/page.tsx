@@ -131,7 +131,7 @@ function LoginContent() {
                 <div className="text-2xl mb-1">{acc.emoji}</div>
                 <div className="font-semibold text-white text-sm">Démo {acc.role}</div>
                 <div className="text-xs text-gray-500 mt-0.5">{acc.desc}</div>
-                <div className="mt-2 text-xs font-mono" style={{ color: acc.color }}>
+                <div className="mt-2 text-xs font-mono break-all" style={{ color: acc.color }}>
                   {acc.email}
                 </div>
               </motion.button>
