@@ -1,4 +1,6 @@
-# 🌍 AgroLink
+<p align="center"><img src="public/brand/mark.svg" alt="ValueChain Connect" width="72" height="72"></p>
+
+<h1 align="center">🌍 AgroLink</h1>
 
 > La marketplace B2B qui connecte producteurs et transformateurs en Afrique de l'Ouest.
 
