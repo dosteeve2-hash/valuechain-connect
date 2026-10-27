@@ -32,6 +32,8 @@ Zone CEDEAO — Burkina Faso, Côte d'Ivoire, Sénégal, Ghana, Mali.
 
 ## 🖥️ Fonctionnalités prévues
 
+État actuel : des écrans de prototype (catalogue, devis, matching, livraisons, tableau de bord) alimentés par des données de démonstration. Rien ci-dessous n'est opérationnel avec de vraies données.
+
 | Module | Description |
 |--------|-------------|
 | Catalogue | Listings matières premières avec photos, qualité, prix |
@@ -44,20 +46,19 @@ Zone CEDEAO — Burkina Faso, Côte d'Ivoire, Sénégal, Ghana, Mali.
 ## 🛠️ Stack
 
 - Next.js 15 (App Router) + TypeScript + Tailwind CSS
-- Supabase (PostgreSQL + Realtime + Storage)
-- shadcn/ui + Framer Motion
-- Stripe/CinetPay pour les paiements (zone CEDEAO)
+- Supabase (client d'authentification en place ; les écrans lisent aujourd'hui des données de démonstration, pas de base de données connectée)
+- Composants Radix UI + Framer Motion
 - Vercel
+- Prévu, pas encore intégré : Supabase Realtime et Storage, paiements (Stripe ou CinetPay pour la zone CEDEAO) : aucun paiement n'est traité
 
 ## 🌍 Écosystème FORGE Afrika
 
-ValueChain Connect est la **clé de voûte** de l'écosystème [FORGE Afrika](https://github.com/dosteeve2-hash/forge-afrika) — c'est là que la valeur créée par tous les autres produits se monétise.
+ValueChain Connect est la **clé de voûte** de l'écosystème [FORGE Afrika](https://github.com/dosteeve2-hash/forge-afrika) — c'est là que la valeur créée par les autres produits est censée se monétiser (objectif, pas encore réalisé).
 
-**Produits alimentant la plateforme :**
+**Produits qui devraient alimenter la plateforme (aucune intégration n'existe encore) :**
 - [AgroTrack BF](https://github.com/dosteeve2-hash/agrotrack-bf) — Coopératives listant leur production
-- [MillTrack](https://github.com/dosteeve2-hash/milltrack) — Transformateurs cherchant des intrants
-- [LivestockOS](https://github.com/dosteeve2-hash/livestock-os) — Éleveurs vendant leur cheptel
-- [TAAMA](https://github.com/dosteeve2-hash/taama) — PMEs transformation achetant
+- [MillTrack](https://github.com/dosteeve2-hash/milltrack) — Transformateurs cherchant des intrants (TAAMA est devenu le module Qualité de MillTrack)
+- [Livestock](https://github.com/dosteeve2-hash/livestock-os) — Éleveurs vendant leur cheptel
 
 ## 🚀 Roadmap
 
